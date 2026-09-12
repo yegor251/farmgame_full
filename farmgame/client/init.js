@@ -11,8 +11,8 @@ class SocketClient{
     constructor()
     {
         this.requestQueue = new Array()
-        this.socket = new WebSocket('ws:localhost:8000');
-        // this.socket = new WebSocket('wss://tonfarmgame.ru/api/');
+        const wsProtocol = window.location.protocol === 'https' ? 'wss' : 'ws';
+        this.socket = new WebSocket(`${wsProtocol}://${window.location.hostname}:8000`);
         this.gameSessionPromiseResolve = null;
         this.gameSessionPromise = new Promise((resolve) => {
             this.gameSessionPromiseResolve = resolve;
