@@ -1,0 +1,7 @@
+{
+    "name": "strawberryCake",
+    "orderPrice": 321,
+    "orderTokenPrice": 404,
+    "orderAmountMin": 1,
+    "orderAmountMax": 4
+}

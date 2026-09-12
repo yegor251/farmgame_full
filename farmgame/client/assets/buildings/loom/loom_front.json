@@ -1,0 +1,14 @@
+{
+    "productx": 7,
+    "producty": 7,
+    "localization": {
+        "name": {
+            "ru": "ткацкий станок",
+            "en": "loom"
+        },
+        "description": {
+            "ru": "производит одежду",
+            "en": "produces clothing"
+        }
+    }
+}

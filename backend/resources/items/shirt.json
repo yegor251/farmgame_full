@@ -1,0 +1,7 @@
+{
+    "name": "shirt",
+    "orderPrice": 168,
+    "orderTokenPrice": 214,
+    "orderAmountMin": 1,
+    "orderAmountMax": 5
+}

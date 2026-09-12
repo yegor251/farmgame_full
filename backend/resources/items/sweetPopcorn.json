@@ -1,0 +1,7 @@
+{
+    "name": "sweetPopcorn",
+    "orderPrice": 173,
+    "orderTokenPrice": 220,
+    "orderAmountMin": 1,
+    "orderAmountMax": 3
+}

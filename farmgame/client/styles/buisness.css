@@ -1,0 +1,39 @@
+.payment-menu-bar {
+    width: 100%;
+    aspect-ratio: 27 / 1;
+    position: relative;
+    overflow: visible;
+    background-image: url('../assets/design/buisness_menu_top.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+}
+.exit_button_metal {
+    position: absolute;
+    height: 270%;
+    width: auto;
+    aspect-ratio: 1 / 1;
+    background-image: url('../assets/design/exit_button_metal_1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    image-rendering: pixelated;
+    right: -3.9%;
+    top: 18%;
+    z-index: 1000;
+    transform: translateY(-50%);
+}
+.payment-menu-bottom {
+    width: 100%;
+    aspect-ratio: 27 / 1;
+    position: relative;
+    background-image: url('../assets/design/buisness_menu_bottom.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+}

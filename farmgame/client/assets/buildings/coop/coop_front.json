@@ -1,0 +1,13 @@
+{
+    "animal": "chicken",
+    "localization": {
+        "name": {
+            "ru": "курятник",
+            "en": "coop"
+        },
+        "description": {
+            "ru": "дом для куриц",
+            "en": "chicken house"
+        }
+    }
+}

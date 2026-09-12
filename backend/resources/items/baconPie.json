@@ -1,0 +1,7 @@
+{
+    "name": "baconPie",
+    "orderPrice": 199,
+    "orderTokenPrice": 355,
+    "orderAmountMin": 1,
+    "orderAmountMax": 3
+}

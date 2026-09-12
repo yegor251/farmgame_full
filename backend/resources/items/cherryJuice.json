@@ -1,0 +1,7 @@
+{
+    "name": "applePie",
+    "orderPrice": 171,
+    "orderTokenPrice": 327,
+    "orderAmountMin": 1,
+    "orderAmountMax": 4
+}

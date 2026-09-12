@@ -1,0 +1,7 @@
+{
+    "name": "raspberryCupcake",
+    "orderPrice": 128,
+    "orderTokenPrice": 97,
+    "orderAmountMin": 1,
+    "orderAmountMax": 5
+}

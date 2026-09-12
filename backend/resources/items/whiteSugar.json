@@ -1,0 +1,7 @@
+{
+    "name": "whiteSugar",
+    "orderPrice": 45,
+    "orderTokenPrice": 35,
+    "orderAmountMin": 1,
+    "orderAmountMax": 5
+}

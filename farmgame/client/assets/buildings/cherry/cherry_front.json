@@ -1,0 +1,12 @@
+{
+    "localization": {
+        "name": {
+            "ru": "вишня",
+            "en": "cherry-tree"
+        },
+        "description": {
+            "ru": "производит вишню",
+            "en": "produces cherry"
+        }
+    }
+}

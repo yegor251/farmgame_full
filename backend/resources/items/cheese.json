@@ -1,0 +1,7 @@
+{
+    "name": "cheese",
+    "orderPrice": 135,
+    "orderTokenPrice": 85,
+    "orderAmountMin": 1,
+    "orderAmountMax": 5
+}

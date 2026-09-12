@@ -1,0 +1,14 @@
+{
+    "productx": 5,
+    "producty": 7,
+    "localization": {
+        "name": {
+            "ru": "попкорница",
+            "en": "popcorn maker"
+        },
+        "description": {
+            "ru": "производит попкорн",
+            "en": "produces popcorn"
+        }
+    }
+}

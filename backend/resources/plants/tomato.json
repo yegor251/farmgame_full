@@ -1,0 +1,13 @@
+{
+  "name": "tomato",
+  "orderPrice": 35,
+  "orderTokenPrice": 6,
+  "orderAmountMin": 2,
+  "orderAmountMax": 14,
+  "seed":{
+      "price": 30000,
+      "amount": 3,
+      "minimumLvl": 0,
+      "timeToGrow": 4200
+  }
+}

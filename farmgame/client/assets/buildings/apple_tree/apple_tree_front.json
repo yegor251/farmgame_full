@@ -1,0 +1,12 @@
+{
+    "localization": {
+        "name": {
+            "ru": "яблоня",
+            "en": "apple-tree"
+        },
+        "description": {
+            "ru": "производит яблоки",
+            "en": "produces apples"
+        }
+    }
+}

@@ -1,0 +1,13 @@
+{
+    "animal": "pig",
+    "localization": {
+        "name": {
+            "ru": "свинарник",
+            "en": "pigsty"
+        },
+        "description": {
+            "ru": "дом для свиней",
+            "en": "pig house"
+        }
+    }
+}

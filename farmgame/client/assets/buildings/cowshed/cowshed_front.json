@@ -1,0 +1,13 @@
+{
+    "animal": "cow",
+    "localization": {
+        "name": {
+            "ru": "коровник",
+            "en": "cowshed"
+        },
+        "description": {
+            "ru": "дом для коров",
+            "en": "cow house"
+        }
+    }
+}

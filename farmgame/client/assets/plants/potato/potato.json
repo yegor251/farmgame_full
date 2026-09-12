@@ -1,0 +1,13 @@
+{
+  "name": "potato",
+  "orderPrice": 26,
+  "orderTokenPrice": 10,
+  "orderAmountMin": 2,
+  "orderAmountMax": 11,
+  "seed":{
+      "price": 75000,
+      "amount": 3,
+      "minimumLvl": 0,
+      "timeToGrow": 6000
+  }
+}

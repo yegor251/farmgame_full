@@ -1,0 +1,12 @@
+{
+    "name": "strawberry",
+    "price": 1370,
+    "productLimit": 3,
+    "speed": 64800,
+    "sizex": 1,
+    "sizey": 1,
+    "mapLimit": 1600,
+    "products": {
+      "strawberry": 2
+    }
+}

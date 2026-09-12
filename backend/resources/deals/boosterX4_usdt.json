@@ -1,0 +1,29 @@
+{
+    "name": "boosterX4_usdt",
+    "usdtPrice": 1000000,
+    "reward":{
+        "token": 0,
+        "boosters":[
+            {
+                "boosterType": "WorkSpeed",
+                "percentage": 50,
+                "time": 2700
+            },
+            {
+                "boosterType": "OrderItems",
+                "percentage": 80,
+                "time": 2700
+            },
+            {
+                "boosterType": "OrderMoney",
+                "percentage": 50,
+                "time": 2700
+            },
+            {
+                "boosterType": "GrowSpeed",
+                "percentage": 50,
+                "time": 2700
+            }
+        ]
+    }
+}

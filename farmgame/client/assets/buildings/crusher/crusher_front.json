@@ -1,0 +1,14 @@
+{
+    "productx": 6,
+    "producty": 3,
+    "localization": {
+        "name": {
+            "ru": "дробилка",
+            "en": "crusher"
+        },
+        "description": {
+            "ru": "производит корм для животных",
+            "en": "produces animal feed"
+        }
+    }
+}

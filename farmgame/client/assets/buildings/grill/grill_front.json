@@ -1,0 +1,14 @@
+{
+    "productx": 11,
+    "producty": 5,
+    "localization": {
+        "name": {
+            "ru": "гриль",
+            "en": "grill"
+        },
+        "description": {
+            "ru": "гриль",
+            "en": "grill"
+        }
+    }
+}

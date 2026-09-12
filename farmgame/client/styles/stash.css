@@ -1,0 +1,160 @@
+#stash {
+    width: 80%;
+    max-height: 90%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+}
+#stash-bar {
+    width: 100%;
+    aspect-ratio: 27 / 5;
+    position: relative;
+    overflow: visible;
+    background-image: url('../assets/design/stash_bar.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+}
+#stash-capacity {
+    width: 40.74%; 
+    height: 32.43%;
+    position: absolute;
+    top: 22%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-wrap: wrap;
+}
+#stash-capacity-text {
+    position: absolute;
+    top: 58%;
+    left: 50%;
+    font-size: 5vw;
+    transform: translateX(-50%);
+    display: flex;
+    flex-wrap: wrap;
+    color: white;
+}
+.stash-capacity-elem {
+    width: 10%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+}
+#closeStash {
+    position: absolute;
+    height: 56%;
+    width: auto;
+    aspect-ratio: 1 / 1;
+    background-image: url('../assets/design/button_exit.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    image-rendering: pixelated;
+    right: -4%;
+    top: 60%;
+    transform: translateY(-50%);
+}
+#stash-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 4%;
+    padding-right: 4%;  
+    background-image: url('../assets/design/menu.png');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow-y: auto;
+    image-rendering: pixelated;
+    position: relative;
+    top: -0.05%;
+    scrollbar-width: none;
+}
+.stash-item {
+    width: 25%;
+    aspect-ratio: 1/1;
+    background-image: url('../assets/design/cell.png');
+    background-repeat: none;
+    background-size: cover;
+    background-position: center;
+    image-rendering: pixelated;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    position: relative;
+}
+.stash-image {
+    image-rendering: pixelated;
+    width: 60%;
+    height: 60%;
+    background-size: contain;
+    background-position: center;
+    background-repeat: no-repeat;
+    margin-top: 6%;
+}
+.stash-item-amount {
+    color: white;
+    text-align: center;
+    flex: 1;
+    position: absolute;
+    bottom: 7.5%;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 4.2vw;
+}
+#upgrade-stash-button-bar {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 4%;
+    padding-right: 4%;  
+    padding-top: 3%;
+    padding-bottom: 3%;
+    background-image: url('../assets/design/menu.png');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+    top: -0.1%;
+}
+#upgrade-stash-button {
+    background-image: url('../assets/design/stash_button_upgrade.png');
+    background-repeat: none;
+    background-size: cover;
+    background-position: center;
+    image-rendering: pixelated;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 40%;
+    aspect-ratio: 29/7;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    font-size: 4.9vw;
+}
+#stash-bottom {
+    width: 100%;
+    height: 0;
+    padding-top: 4%;
+    overflow: hidden;
+    background-image: url('../assets/design/menu_bottom.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    position: relative;
+    top: -0.15%;
+}
+.back-color {
+    background-color: rgb(69, 41, 36);
+}

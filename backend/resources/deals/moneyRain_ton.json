@@ -1,0 +1,19 @@
+{
+    "name": "moneyRain_ton",
+    "tonPrice": 300000000,
+    "reward":{
+        "token": 0,
+        "boosters":[
+            {
+                "boosterType": "OrderItems",
+                "percentage": 50,
+                "time": 1800
+            },
+            {
+                "boosterType": "OrderMoney",
+                "percentage": 100,
+                "time": 1800
+            }
+        ]
+    }
+}

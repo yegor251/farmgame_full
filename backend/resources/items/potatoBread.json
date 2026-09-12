@@ -1,0 +1,7 @@
+{
+    "name": "potatoBread",
+    "orderPrice": 298,
+    "orderTokenPrice": 249,
+    "orderAmountMin": 1,
+    "orderAmountMax": 4
+}

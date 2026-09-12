@@ -1,0 +1,13 @@
+{
+    "name": "indigo",
+    "orderPrice": 20,
+    "orderTokenPrice": 2,
+    "orderAmountMin": 5,
+    "orderAmountMax": 20,
+    "seed":{
+        "price": 15000,
+        "amount": 3,
+        "minimumLvl": 0,
+        "timeToGrow": 1800
+    }
+  }

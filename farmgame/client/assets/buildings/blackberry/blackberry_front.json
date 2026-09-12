@@ -1,0 +1,12 @@
+{
+    "localization": {
+        "name": {
+            "ru": "ежевика",
+            "en": "blackberry"
+        },
+        "description": {
+            "ru": "производит ежевику",
+            "en": "produces blackberry"
+        }
+    }
+}

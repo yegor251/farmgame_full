@@ -1,0 +1,7 @@
+{
+    "name": "wool",
+    "orderPrice": 68,
+    "orderTokenPrice": 33,
+    "orderAmountMin": 1,
+    "orderAmountMax": 8
+}

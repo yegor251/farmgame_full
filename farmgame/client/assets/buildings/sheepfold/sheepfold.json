@@ -1,0 +1,23 @@
+{
+    "name": "sheepfold",
+    "price": 20000,
+    "speed": 10800,
+    "maxAnimalAmount": 6,
+    "animalPrice": 20000,
+    "sizex": 3,
+    "sizey": 3,
+    "maxLevel": 4,
+    "mapLimit": 2,
+    "intake":
+    {
+      "pigFeed": 1
+    },
+    "products":
+    {
+      "wool": 1
+    },
+    "upgradesPrice":
+    [
+      2000, 6000, 60000
+    ]
+  }

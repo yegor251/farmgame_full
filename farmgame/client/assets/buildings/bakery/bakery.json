@@ -1,0 +1,135 @@
+{
+  "name": "bakery",
+  "price": 10,
+  "maxSlots": 2,
+  "sizex": 3,
+  "sizey": 2,
+  "maxLevel": 6,
+  "mapLimit": 3,
+  "workTypes":
+  {
+      "bread":
+      {
+          "minLevel": 1,
+          "timeToFinish": 120,
+          "items":
+          {
+              "wheat": 3
+          },
+          "products":
+          {
+              "bread": 1
+          }
+      },
+      "cornbread":
+      {
+          "minLevel": 2,
+          "timeToFinish": 600,
+          "items":
+          {
+              "corn": 2,
+              "egg": 2
+          },
+          "products":
+          {
+              "cornbread": 1
+          }
+      },
+      "cookie":
+      {
+          "minLevel": 3,
+          "timeToFinish": 1500,
+          "items":
+          {
+              "wheat": 2,
+              "egg": 2,
+              "brownSugar": 1
+          },
+          "products":
+          {
+              "cookie": 1
+          }
+      },
+      "raspberryCupcake":
+      {
+          "minLevel": 4,
+          "timeToFinish": 1200,
+          "items":
+          {
+              "wheat": 2,
+              "raspberry": 2,
+              "egg": 1
+          },
+          "products":
+          {
+              "raspberryCupcake": 1
+          }
+      },
+      "blackberryCupcake":
+      {
+          "minLevel": 4,
+          "timeToFinish": 180,
+          "items":
+          {
+              "wheat": 1,
+              "blackberry": 2,
+              "egg": 2
+          },
+          "products":
+          {
+              "blackberryCupcake": 1
+          }
+      },
+      "pizza":
+      {
+          "minLevel": 5,
+          "timeToFinish": 600,
+          "items":
+          {
+              "wheat": 2,
+              "tomato": 1,
+              "cheese": 1
+          },
+          "products":
+          {
+              "pizza": 1
+          }
+      },
+      "spicyPizza":
+      {
+          "minLevel": 5,
+          "timeToFinish": 600,
+          "items":
+          {
+              "wheat": 2,
+              "tomato": 1,
+              "cheese": 1,
+              "pepper": 1
+          },
+          "products":
+          {
+              "spicyPizza": 1
+          }
+      },
+      "potatoBread":
+      {
+          "minLevel": 6,
+          "timeToFinish": 900,
+          "items":
+          {
+              "egg": 3,
+              "potato": 2,
+              "butter": 1,
+              "whiteSugar": 1
+          },
+          "products":
+          {
+              "potatoBread": 1
+          }
+      }
+  },
+  "upgradesPrice":
+  [
+      150, 500, 1000, 10000, 50000
+  ]
+}

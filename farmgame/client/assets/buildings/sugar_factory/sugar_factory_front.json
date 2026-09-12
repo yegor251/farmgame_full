@@ -1,0 +1,14 @@
+{
+    "productx": 13,
+    "producty": 12,
+    "localization": {
+        "name": {
+            "ru": "сахарный завод",
+            "en": "sugar factory"
+        },
+        "description": {
+            "ru": "обрабатывает сахарный тростник",
+            "en": "processes sugar cane"
+        }
+    }
+}

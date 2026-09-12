@@ -1,0 +1,7 @@
+{
+    "name": "bacon",
+    "orderPrice": 48,
+    "orderTokenPrice": 20,
+    "orderAmountMin": 1,
+    "orderAmountMax": 10
+}

@@ -1,0 +1,7 @@
+{
+    "name": "cowFeed",
+    "orderPrice": 23,
+    "orderTokenPrice": 10,
+    "orderAmountMin": 1,
+    "orderAmountMax": 8
+}

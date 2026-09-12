@@ -1,0 +1,7 @@
+{
+    "name": "strawberry",
+    "orderPrice": 189,
+    "orderTokenPrice": 55,
+    "orderAmountMin": 1,
+    "orderAmountMax": 10
+}

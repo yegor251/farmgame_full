@@ -1,0 +1,233 @@
+#orders {
+    width: 80%;
+    max-height: 90%;
+    overflow: visible;
+    background-color: rgb(69, 41, 36);
+}
+#orders-bar {
+    width: 100%;
+    aspect-ratio: 15/2;
+    position: relative;
+    background-image: url('../assets/design/orders_bar.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    overflow: visible;
+}
+#closeOrders {
+    position: absolute;
+    height: 70%;
+    width: auto;
+    aspect-ratio: 1 / 1;
+    background-image: url('../assets/design/button_exit.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    image-rendering: pixelated;
+    right: -3.5%;
+    top: 6%;
+    transform: translateY(-50%);
+}
+#order-money-content {
+    width: 42.6%; 
+    height: 47.22%;
+    position: absolute;
+    top: 40%;
+    left: 27.5%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+#order-token-content {
+    width: 50%; 
+    height: 47.22%;
+    position: absolute;
+    top: 40%;
+    left: 72%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row;
+    overflow: hidden;
+}
+#order-money {
+    overflow: hidden;
+    color: yellow;
+    font-size: 4.6vw;
+    /* height: 100%; */
+    text-shadow: 0.25vw 0.25vw 0 black, -0.25vw -0.25vw 0 black, 0.25vw -0.25vw 0 black, -0.25vw 0.25vw 0 black;
+}
+#order-token {
+    overflow: hidden;
+    color: #45BB76;
+    font-size: 4.6vw;
+    /* height: 100%; */
+    text-shadow: 0.25vw 0.25vw 0 black, -0.25vw -0.25vw 0 black, 0.25vw -0.25vw 0 black, -0.25vw 0.25vw 0 black;
+}
+#order-details {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    background-image: url('../assets/design/order_menu.png');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow-y: auto;
+    image-rendering: pixelated;
+    position: relative;
+    top: -0.1%;
+    scrollbar-width: none;
+    aspect-ratio: 2500 / 873;
+    padding-left: 6.3%;
+    padding-right: 6.4%;
+    padding-top: 0.5%;
+    box-sizing: border-box;
+}
+#order-buttons-bar {
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    background-image: url('../assets/design/order_menu.png');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    position: relative;
+    justify-content: space-around;
+    top: -0.15%;
+}
+.order-res {
+    display: flex;
+    height: 50%;
+    aspect-ratio: 1 / 1;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+}
+.order-res-img {
+    width: 80%;
+    height: 80%;
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+}
+.order-res-amount {
+    font-size: 4vw;
+    overflow: hidden;
+}
+.complete-order {
+    width: 14%;
+    aspect-ratio: 1 / 1;
+    background-image: url('../assets/design/complete_order.png');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+}
+.reroll-order {
+    width: 14%;
+    aspect-ratio: 1 / 1;
+    background-image: url('../assets/design/reroll_order.png');
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+}
+#order-details-bottom {
+    background-image: url('../assets/design/orders_menu_bottom.png');
+    background-repeat: none;
+    background-size: cover;
+    background-position: center;
+    image-rendering: pixelated;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 100%;
+    aspect-ratio: 270/21;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    top: -0.2%;
+
+}
+#orders-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 4%;
+    padding-right: 4%;  
+    background-image: url('../assets/design/menu.png');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    overflow-y: auto;
+    image-rendering: pixelated;
+    position: relative;
+    top: -0.25%;
+    scrollbar-width: none;
+    box-sizing: border-box;
+    justify-content: space-around;
+}
+.order {
+    width: 21%;
+    aspect-ratio: 1 / 1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+#orders-bottom {
+    background-image: url('../assets/design/menu_bottom.png');
+    background-repeat: none;
+    background-size: cover;
+    background-position: center;
+    image-rendering: pixelated;
+    display: flex;
+    flex-flow: column;
+    align-items: center;
+    width: 100%;
+    aspect-ratio: 270/11;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    top: -0.35%;
+}
+.order-timer {
+    font-size: 60px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
+}
+#order-token-img, #order-money-img {
+    height: 90%;
+    aspect-ratio: 1 / 1;
+    background-repeat: none;
+    background-size: cover;
+    background-position: center;
+    image-rendering: pixelated;
+    margin-right: 1vw;
+}
+#order-money-img {
+    background-image: url('../assets/design/money_icon.png');
+}
+#order-token-img {
+    background-image: url('../assets/design/token_icon.png');
+}

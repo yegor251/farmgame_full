@@ -1,0 +1,72 @@
+{
+  "name": "crusher",
+  "price": 10,
+  "maxSlots": 2,
+  "sizex": 2,
+  "sizey": 1,
+  "maxLevel": 4,
+  "mapLimit": 3,
+  "workTypes":
+  {
+      "chickenFeed":
+      {
+          "minLevel": 1,
+          "timeToFinish": 180,
+          "items":
+          {
+              "wheat": 2,
+              "corn": 1
+          },
+          "products":
+          {
+              "chickenFeed": 1
+          }
+      },
+      "cowFeed":
+      {
+          "minLevel": 2,
+          "timeToFinish": 360,
+          "items":
+          {
+              "soy": 2,
+              "corn": 1
+          },
+          "products":
+          {
+              "cowFeed": 1
+          }
+      },
+      "pigFeed":
+      {
+          "minLevel": 3,
+          "timeToFinish": 600,
+          "items":
+          {
+              "carrot": 2,
+              "soy": 1
+          },
+          "products":
+          {
+              "pigFeed": 1
+          }
+      },
+      "sheepFeed":
+      {
+          "minLevel": 4,
+          "timeToFinish": 900,
+          "items":
+          {
+              "wheat": 3,
+              "soy": 1
+          },
+          "products":
+          {
+              "sheepFeed": 1
+          }
+      }
+  },
+  "upgradesPrice":
+  [
+      250, 1500, 10000
+  ]
+}

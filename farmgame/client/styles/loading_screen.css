@@ -1,0 +1,114 @@
+#loading-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 9999;
+  background-color: #000000;
+}
+#loading-container {
+  width: 80%;
+  height: 20%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  z-index: 100;
+  overflow: hidden;
+}
+
+#loading-text {
+  color: white;
+  font-size: 5.7vw;
+  margin-bottom: 1.5vh;
+}
+
+#loading-bar-wrapper {
+  width: 100%;
+  height: 3vh;
+  background-color: #555;
+  border-radius: 1.2vw;
+  overflow: hidden;
+}
+
+#loading-bar {
+  height: 100%;
+  width: 0;
+  background-color: #00ff00;
+  transition: width 0.3s;
+}
+
+#main-content {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.layer img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+}
+
+/* Layer order: Top layer on top, background on bottom */
+#topLayer {
+  z-index: 5;
+}
+
+#clouds {
+  z-index: 4;
+}
+
+#birds {
+  z-index: 3;
+}
+
+#stars {
+  z-index: 2;
+}
+
+#background {
+  z-index: 1;
+}
+
+/* Animations */
+@keyframes moveLeft {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
+
+#clouds img, #birds img, #stars img {
+  animation: moveLeft 30s linear infinite;
+}
+
+#clouds img {
+  animation-duration: 60s; /* Slow moving clouds */
+}
+
+#birds img {
+  animation-duration: 45s; /* Faster birds */
+}
+
+#stars img {
+  animation-duration: 90s; /* Slowest stars */
+}

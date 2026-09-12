@@ -1,0 +1,7 @@
+{
+    "name": "hamburger",
+    "orderPrice": 166,
+    "orderTokenPrice": 233,
+    "orderAmountMin": 1,
+    "orderAmountMax": 4
+}

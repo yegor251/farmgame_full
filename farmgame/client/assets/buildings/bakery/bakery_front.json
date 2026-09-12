@@ -1,0 +1,14 @@
+{
+    "productx": 11,
+    "producty": 9,
+    "localization": {
+        "name": {
+            "ru": "печка",
+            "en": "bakery"
+        },
+        "description": {
+            "ru": "производит выпечку",
+            "en": "produces baked goods"
+        }
+    }
+}

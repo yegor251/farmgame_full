@@ -1,0 +1,42 @@
+#obstacle-menu {
+    width: 80%;
+    max-height: 90%;
+    overflow: visible;
+    background-color: rgb(69, 41, 36);
+}
+#obstacle-img {
+    border-radius: 15px;
+    border: 3px solid rgb(190, 110, 73);
+}
+#obstacle-button {
+    background-image: url('../assets/design/reroll_order.png');
+}
+#obstacle-money-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+#obstacle-token-content {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+}
+#obstacle-money {
+    color: yellow;
+    font-size: 4.6vw;
+}
+#obstacle-token {
+    color: #45BB76;
+    font-size: 4.6vw;
+}
+.little-checkmark {
+    width: 4.6vw;
+    aspect-ratio: 1 / 1;
+    background-image: url('../assets/design/complete_order.png');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+}

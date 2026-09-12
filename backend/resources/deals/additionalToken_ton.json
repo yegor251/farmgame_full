@@ -1,0 +1,8 @@
+{
+    "name": "additionalToken_ton",
+    "tonPrice": 200000000,
+    "reward":{
+        "token": 5000,
+        "boosters": []
+    }
+}

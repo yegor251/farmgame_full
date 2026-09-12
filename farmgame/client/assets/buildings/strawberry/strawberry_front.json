@@ -1,0 +1,12 @@
+{
+    "localization": {
+        "name": {
+            "ru": "клубника",
+            "en": "strawberry"
+        },
+        "description": {
+            "ru": "производит клубнику",
+            "en": "produces strawberry"
+        }
+    }
+}

@@ -1,0 +1,7 @@
+{
+    "name": "pizza",
+    "orderPrice": 199,
+    "orderTokenPrice": 118,
+    "orderAmountMin": 1,
+    "orderAmountMax": 5
+}

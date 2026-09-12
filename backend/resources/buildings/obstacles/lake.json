@@ -1,0 +1,7 @@
+{
+    "name": "lake",
+    "removePrice": 3000,
+    "removeTokenPrice": 10000,
+    "sizex": 4,
+    "sizey": 3
+}

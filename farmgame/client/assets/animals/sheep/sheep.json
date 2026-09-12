@@ -1,0 +1,10 @@
+{
+    "name": "sheep",
+    "size": {
+      "w": 1,
+      "h": 1
+    },
+    "badZone": 2,
+    "price": 20000
+  }
+  

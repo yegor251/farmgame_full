@@ -1,0 +1,7 @@
+{
+    "name": "omelet",
+    "orderPrice": 240,
+    "orderTokenPrice": 210,
+    "orderAmountMin": 1,
+    "orderAmountMax": 4
+}

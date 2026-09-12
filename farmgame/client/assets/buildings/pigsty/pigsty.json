@@ -1,0 +1,23 @@
+{
+    "name": "pigsty",
+    "price": 3000,
+    "speed": 7200,
+    "maxAnimalAmount": 6,
+    "animalPrice": 3000,
+    "sizex": 3,
+    "sizey": 3,
+    "maxLevel": 4,
+    "mapLimit": 2,
+    "intake":
+    {
+      "pigFeed": 1
+    },
+    "products":
+    {
+        "bacon": 1
+    },
+    "upgradesPrice":
+    [
+        3000, 9000, 90000
+    ]
+  }

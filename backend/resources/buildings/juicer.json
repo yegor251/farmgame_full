@@ -1,0 +1,82 @@
+{
+  "name": "juicer",
+  "price": 100000,
+  "maxSlots": 1,
+  "sizex": 2,
+  "sizey": 3,
+  "maxLevel": 4,
+  "mapLimit": 2,
+  "workTypes":
+  {
+      "carrotJuice":
+      {
+          "minLevel": 1,
+          "timeToFinish": 900,
+          "items":
+          {
+              "carrot": 3
+          },
+          "products":
+          {
+              "carrotJuice": 1
+          }
+      },
+      "appleJuice":
+      {
+          "minLevel": 2,
+          "timeToFinish": 3600,
+          "items":
+          {
+              "apple": 2
+          },
+          "products":
+          {
+              "appleJuice": 1
+          }
+      },
+      "cherryJuice":
+      {
+          "minLevel": 2,
+          "timeToFinish": 4500,
+          "items":
+          {
+              "cherry": 2
+          },
+          "products":
+          {
+              "cherryJuice": 1
+          }
+      },
+      "tomatoJuice":
+      {
+          "minLevel": 3,
+          "timeToFinish": 2700,
+          "items":
+          {
+              "tomato": 3
+          },
+          "products":
+          {
+              "tomatoJuice": 1
+          }
+      },
+      "berryJuice":
+      {
+          "minLevel": 4,
+          "timeToFinish": 5400,
+          "items":
+          {
+              "blackberry": 1,
+              "raspberry": 1
+          },
+          "products":
+          {
+              "berryJuice": 1
+          }
+      }
+  },
+  "upgradesPrice":
+  [
+      100000, 200000, 350000
+  ]
+}

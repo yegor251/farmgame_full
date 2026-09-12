@@ -1,0 +1,7 @@
+{
+    "name": "apple",
+    "orderPrice": 31,
+    "orderTokenPrice": 26,
+    "orderAmountMin": 1,
+    "orderAmountMax": 15
+}

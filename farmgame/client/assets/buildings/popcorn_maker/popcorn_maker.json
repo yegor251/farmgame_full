@@ -1,0 +1,71 @@
+{
+  "name": "popcorn_maker",
+  "price": 2500,
+  "maxSlots": 1,
+  "sizex": 2,
+  "sizey": 2,
+  "maxLevel": 3,
+  "mapLimit": 2,
+  "workTypes":
+  {
+      "popcorn":
+      {
+          "minLevel": 1,
+          "timeToFinish": 900,
+          "items":
+          {
+              "corn": 2
+          },
+          "products":
+          {
+              "popcorn": 1
+          }
+      },
+      "butterPopcorn":
+      {
+          "minLevel": 1,
+          "timeToFinish": 1800,
+          "items":
+          {
+              "corn": 2,
+              "butter": 1
+          },
+          "products":
+          {
+              "butterPopcorn": 1
+          }
+      },
+      "chilePopcorn":
+      {
+          "minLevel": 2,
+          "timeToFinish": 3600,
+          "items":
+          {
+              "corn": 2,
+              "pepper": 1
+          },
+          "products":
+          {
+              "chilePopcorn": 1
+          }
+      },
+      "sweetPopcorn":
+      {
+          "minLevel": 3,
+          "timeToFinish": 4800,
+          "items":
+          {
+              "corn": 2,
+              "syrup": 1
+          },
+          "products":
+          {
+              "sweetPopcorn": 1
+          }
+      }
+  },
+  "upgradesPrice":
+  [
+      5000, 10000
+  ]
+}

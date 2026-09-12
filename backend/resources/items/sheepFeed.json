@@ -1,0 +1,7 @@
+{
+    "name": "sheepFeed",
+    "orderPrice": 65,
+    "orderTokenPrice": 30,
+    "orderAmountMin": 1,
+    "orderAmountMax": 10
+}

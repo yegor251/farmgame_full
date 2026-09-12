@@ -1,0 +1,784 @@
+{
+    "levels": [
+        {
+            "price": 100,
+            "capacityBonus": 10
+        },
+        {
+            "price": 100,
+            "capacityBonus": 10
+        },
+        {
+            "price": 100,
+            "capacityBonus": 10
+        },
+        {
+            "price": 100,
+            "capacityBonus": 10
+        },
+        {
+            "price": 100,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        },
+        {
+            "price": 1000,
+            "capacityBonus": 10
+        }
+    ]
+}

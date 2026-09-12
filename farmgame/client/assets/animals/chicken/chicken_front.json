@@ -1,0 +1,12 @@
+{
+    "localization": {
+        "name": {
+            "ru": "курица",
+            "en": "chiken"
+        },
+        "description": {
+            "ru": "живет в курятнике",
+            "en": "lives in a coop"
+        }
+    }
+}

@@ -1,0 +1,14 @@
+{
+    "productx": -1.5,
+    "producty": 22,
+    "localization": {
+        "name": {
+            "ru": "соковыжималка",
+            "en": "juicer"
+        },
+        "description": {
+            "ru": "производит соки",
+            "en": "produces juices"
+        }
+    }
+}

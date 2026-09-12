@@ -1,0 +1,12 @@
+{
+    "name": "blackberry",
+    "price": 530,
+    "productLimit": 3,
+    "speed": 57600,
+    "sizex": 2,
+    "sizey": 1,
+    "mapLimit": 1600,
+    "products": {
+      "blackberry": 3
+    }
+}

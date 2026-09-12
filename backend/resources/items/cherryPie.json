@@ -1,0 +1,7 @@
+{
+    "name": "cherryPie",
+    "orderPrice": 278,
+    "orderTokenPrice": 204,
+    "orderAmountMin": 1,
+    "orderAmountMax": 4
+}

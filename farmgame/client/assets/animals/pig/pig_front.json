@@ -1,0 +1,12 @@
+{
+    "localization": {
+        "name": {
+            "ru": "свинья",
+            "en": "pig"
+        },
+        "description": {
+            "ru": "живет в свинарнике",
+            "en": "lives in a pigsty"
+        }
+    }
+}

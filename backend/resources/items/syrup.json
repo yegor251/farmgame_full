@@ -1,0 +1,7 @@
+{
+    "name": "syrup",
+    "orderPrice": 90,
+    "orderTokenPrice": 69,
+    "orderAmountMin": 1,
+    "orderAmountMax": 6
+}

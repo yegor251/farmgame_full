@@ -1,0 +1,86 @@
+#spin {
+    width: 80%;
+    max-height: 90%;
+    overflow: visible;
+    background-color: rgb(69, 41, 36);
+}
+#spin-list {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    background-image: url('../assets/design/menu.png');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    position: relative;
+    overflow: hidden;
+    justify-content: center;
+    align-items: center;
+}
+#spin-content {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+#spin-wheel {
+    width: 90%;
+    aspect-ratio: 1 / 1;
+    background-image: url('../assets/design/wheel.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    position: relative;
+    overflow: hidden;
+    transition: transform 4s ease-out;
+}
+#spin-arrow {
+    width: 90%;
+    aspect-ratio: 1 / 1;
+    background-image: url('../assets/design/wheel_arrow.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    position: absolute;
+    overflow: hidden;
+}
+.spin-elem {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 50%;
+    height: 30%; 
+    position: absolute;
+    clip-path: polygon(100% 0, 50% 100%, 0 0);
+    transform-origin: bottom;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    left: 25%;
+    top: 20%;
+}
+.spin-image{
+    width: 23%;
+    aspect-ratio: 1 / 1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    image-rendering: pixelated;
+    top: 50%;
+    left: 50%;
+}
+.spin-text {
+    font-size: 4.6vw;
+    top: 60%;
+    left: 50%;
+}
+#spin-timer {
+    font-size: 5.3vw;
+    color: white;
+}

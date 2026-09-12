@@ -1,0 +1,7 @@
+{
+    "name": "cornbread",
+    "orderPrice": 60,
+    "orderTokenPrice": 20,
+    "orderAmountMin": 1,
+    "orderAmountMax": 7
+}

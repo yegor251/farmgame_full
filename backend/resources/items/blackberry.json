@@ -1,0 +1,7 @@
+{
+    "name": "blackberry",
+    "orderPrice": 111,
+    "orderTokenPrice": 45,
+    "orderAmountMin": 1,
+    "orderAmountMax": 12
+}

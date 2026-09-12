@@ -1,0 +1,7 @@
+{
+    "name": "blueCap",
+    "orderPrice": 227,
+    "orderTokenPrice": 118,
+    "orderAmountMin": 1,
+    "orderAmountMax": 5
+}

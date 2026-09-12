@@ -1,0 +1,153 @@
+{
+  "name": "oven",
+  "price": 5000,
+  "maxSlots": 2,
+  "sizex": 3,
+  "sizey": 3,
+  "maxLevel": 4,
+  "mapLimit": 2,
+  "workTypes":
+  {
+      "carrotPie":
+      {
+          "minLevel": 1,
+          "timeToFinish": 1800,
+          "items":
+          {
+              "carrot": 3,
+              "wheat": 2,
+              "egg": 1
+          },
+          "products":
+          {
+              "carrotPie": 1
+          }
+      },
+      "pumpkinPie":
+      {
+          "minLevel": 1,
+          "timeToFinish": 3600,
+          "items":
+          {
+              "pumpkin": 3,
+              "wheat": 2,
+              "egg": 1
+          },
+          "products":
+          {
+              "pumpkinPie": 1
+          }
+      },
+      "baconPie":
+      {
+          "minLevel": 2,
+          "timeToFinish": 5400,
+          "items":
+          {
+              "bacon": 3,
+              "wheat": 2,
+              "egg": 1
+          },
+          "products":
+          {
+              "baconPie": 1
+          }
+      },
+      "applePie":
+      {
+          "minLevel": 1,
+          "timeToFinish": 4200,
+          "items":
+          {
+              "apple": 3,
+              "wheat": 2,
+              "egg": 1,
+              "syrup": 1
+          },
+          "products":
+          {
+              "applePie": 1
+          }
+      },
+      "carrotCake":
+      {
+          "minLevel": 3,
+          "timeToFinish": 2700,
+          "items":
+          {
+              "carrot": 2,
+              "butter": 1,
+              "brownSugar": 1
+          },
+          "products":
+          {
+              "carrotCake": 1
+          }
+      },
+      "creamCake":
+      {
+          "minLevel": 3,
+          "timeToFinish": 5400,
+          "items":
+          {
+              "wheat": 5,
+              "cream": 1,
+              "whiteSugar": 1
+          },
+          "products":
+          {
+              "creamCake": 1
+          }
+      },
+      "cherryPie":
+      {
+          "minLevel": 3,
+          "timeToFinish": 2700,
+          "items":
+          {
+              "cherry": 2,
+              "milk": 1,
+              "egg": 1,
+              "raspberry": 1
+          },
+          "products":
+          {
+              "cherryPie": 1
+          }
+      },
+      "cheesecake":
+      {
+          "minLevel": 4,
+          "timeToFinish": 5400,
+          "items":
+          {
+              "cheese": 1,
+              "cookie": 1
+          },
+          "products":
+          {
+              "cheesecake": 1
+          }
+      },
+      "strawberryCake":
+      {
+          "minLevel": 4,
+          "timeToFinish": 5400,
+          "items":
+          {
+              "wheat": 3,
+              "strawberry": 2,
+              "cream": 1,
+              "whiteSugar": 1
+          },
+          "products":
+          {
+              "strawberryCake": 1
+          }
+      }
+  },
+  "upgradesPrice":
+  [
+      5000, 20000, 50000
+  ]
+}

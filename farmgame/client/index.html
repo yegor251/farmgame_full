@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="client/style.css" type="text/css"/>
+    <link rel="stylesheet" href="client/styles/shop.css" type="text/css"/>
+    <link rel="stylesheet" href="client/styles/stash.css" type="text/css"/>
+    <link rel="stylesheet" href="client/styles/orders.css" type="text/css"/>
+    <link rel="stylesheet" href="client/styles/buildable.css" type="text/css"/>
+    <link rel="stylesheet" href="client/styles/field.css" type="text/css"/>
+    <link rel="stylesheet" href="client/styles/bushAndAnimal.css" type="text/css"/>
+    <link rel="stylesheet" href="client/styles/obstacle.css" type="text/css"/>
+    <link rel="stylesheet" href="client/styles/spin.css" type="text/css"/>
+    <link rel="stylesheet" href="client/styles/boosters.css" type="text/css"/>
+    <link rel="stylesheet" href="client/styles/loading_screen.css" type="text/css"/>
+    <link rel="stylesheet" href="client/styles/buisness.css" type="text/css"/>
+    <link rel="stylesheet" href="client/styles/transactions.css" type="text/css"/>
+    <link rel="stylesheet" href="client/styles/mainMenu.css" type="text/css"/>
+    <link rel="stylesheet" href="client/styles/deals_payment.css" type="text/css"/>
+    <link rel="stylesheet" href="client/styles/manual.css" type="text/css"/>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+    <title>TON Farm</title>
+    <script defer src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+<body>
+    <div id="loading-screen">
+        <div id="loading-container">
+            <p id="loading-text">Loading...</p>
+            <div id="loading-bar-wrapper">
+              <div id="loading-bar"></div>
+            </div>
+          </div>
+        
+          <div id="main-content">
+            <div id="background" class="layer">
+              <img src="client/assets/loading/BACKGROUND.png" alt="Background">
+            </div>
+            
+            <div id="stars" class="layer">
+              <img src="client/assets/loading/STARS.png" alt="Stars">
+            </div>
+            
+            <div id="clouds" class="layer">
+              <img src="client/assets/loading/CLOUDS.png" alt="Clouds">
+            </div>
+            
+            <div id="birds" class="layer">
+              <img src="client/assets/loading/BIRDS.png" alt="Birds">
+            </div>
+            
+            <div id="topLayer" class="layer">
+              <img src="client/assets/loading/TOP_LAYER.png" alt="Top Layer">
+            </div>
+        </div>
+    </div>
+
+    <canvas id="canvas"></canvas>
+    <div id="open-shop"></div>
+    <div id="open-main-menu"></div>
+    <div id="open-manual"></div>
+    <div id="money-bar">
+        <div id="money-container">
+            <h3 id="money"></h3>
+            <div id="money-img" class="small-bar-img"></div>
+        </div>
+        <div id="token-container">
+            <h3 id="token"></h3>
+            <div id="token-img" class="small-bar-img"></div>
+        </div>
+    </div>
+    <div id="main-menu-wrap" class="menu-wrap">
+        <div id="main-menu">
+            <div class="main-menu-bar">
+                <div id="farm-name-cont">
+                    <h3 id="farm-name"></h3>
+                </div>
+                <div id="close-main-menu"></div>
+            </div>
+            <div id="main-menu-body">
+                <div id="main-menu-balances">
+                    <div class="balance-content">
+                        <div class="money-balance-icon"></div>
+                        <div id="money-balance-place" class="balance-place">
+                            <h3 id="money-balance" class="balance"></h3>
+                        </div>
+                    </div>
+                    <div class="balance-content">
+                        <div class="money-balance-icon"></div>
+                        <div id="networth-balance-place" class="balance-place">
+                            <h3 id="networth-balance" class="balance"></h3>
+                        </div>
+                        <div id="networth-question-button"></div>
+                    </div>
+                    <div class="balance-content">
+                        <div class="token-balance-icon"></div>
+                        <div id="token-balance-place" class="balance-place">
+                            <h3 id="token-balance" class="balance"></h3>
+                        </div>
+                        <div class="donate-plus-button"></div>
+                        <div id="token-withdraw-button"></div>
+                    </div>
+                    <div class="balance-content">
+                        <div class="ton-balance-icon"></div>
+                        <div id="ton-balance-place" class="balance-place">
+                            <h3 id="ton-balance" class="balance"></h3>
+                        </div>
+                        <div class="donate-plus-button"></div>
+                    </div>
+                    <div class="balance-content">
+                        <div class="usdt-balance-icon"></div>
+                        <div id="usdt-balance-place" class="balance-place">
+                            <h3 id="usdt-balance" class="balance"></h3>
+                        </div>
+                        <div class="donate-plus-button"></div>
+                    </div>
+                </div>
+                <div id="main-menu-buttons">
+                    <div class="main-menu-button-cont">
+                        <div id="open-transactions" class="main-menu-button"></div>
+                        <h3 id="main-menu-transactions" class="main-menu-button-text">Transactions</h3>
+                    </div>
+                    <div class="main-menu-button-cont">
+                        <div id="booster" class="main-menu-button"></div>
+                        <h3 id="main-menu-boosters" class="main-menu-button-text">Boosters</h3>
+                    </div>
+                    <div class="main-menu-button-cont">
+                        <div id="open-deals" class="main-menu-button"></div>
+                        <h3 id="main-menu-deals" class="main-menu-button-text">Deals</h3>
+                    </div>
+                </div>
+                <div id="referral-container">
+                    <div id="referral-button">
+                        <h3 id="referral-button-text"></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="main-menu-bottom"></div>
+        </div>
+    </div>
+    <div id="withdraw-menu-wrap" class="menu-wrap">
+        <div id="withdraw-menu">
+            <div class="payment-menu-bar">
+                <div id="close-withdraw-menu" class="exit_button_metal"></div>
+            </div>
+            <div class="payment-menu-list">
+                <div id="withdraw-ton-wrap">
+                    <div id="withdraw-ton-img"></div>
+                    <h4 id="withdraw-ton-balance"></h4>
+                </div>
+                <div id="withdraw-token-wrap">
+                    <div id="withdraw-token-img"></div>
+                    <h4 id="withdraw-token-balance"></h4>
+                </div>
+                <div class="manual-pay">
+                    <div class="manual-pay">
+                        <h3 id="withdraw-rule"></h3>
+                    </div>
+                    <div class="manual-pay">
+                        <h3 id="withdraw-adress-text"></h3>
+                    </div>
+                    <div class="withdraw-center-content">
+                        <input id="withdraw-adress" type="text">
+                    </div>
+                    <div class="manual-pay">
+                        <h3 id="withdraw-amount-text"></h3>
+                    </div>
+                    <div class="withdraw-center-content">
+                        <input id="withdraw-amount" type="text">
+                        <div id="confirm-withdraw">
+                            <h3 id="confirm-withdraw-text"></h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="payment-menu-bottom"></div>
+        </div>
+    </div>
+    <div id="shop-wrap" class="menu-wrap">
+        <div id="shop">
+            <div id="shop-bar"></div>
+            <div id="shop-list"></div>
+        </div>
+    </div>
+    <div id="spin-wrap" class="menu-wrap">
+        <div id="spin">
+            <div class="buildable-menu-bar">
+                <div id="closeSpin" class="buildable-close-button"></div>
+            </div>
+            <div id="spin-list">
+                <div id="spin-content">
+                    <div id="spin-wheel"></div>
+                    <div id="spin-arrow"></div>
+                </div>
+                <div id="spin-button" class="upgrade-buildable-button">Spin</div>
+                <h3 id="spin-timer"></h3>
+            </div>
+            <div class="buildable-bottom"></div>
+        </div>
+    </div>
+    <div id="booster-menu-wrap" class="menu-wrap">
+        <div id="booster-menu">
+            <div class="buildable-menu-bar">
+                <div id="close-booster-menu" class="buildable-close-button"></div>
+            </div>
+            <div class="buildable-menu-list">
+                <div id="activ-boosters"></div>
+            </div>
+            <div id="boosters-list"></div>
+            <div class="buildable-bottom"></div>
+        </div>
+    </div>
+    <div id="obstacle-menu-wrap" class="menu-wrap">
+        <div id="obstacle-menu">
+            <div class="buildable-menu-bar">
+                <div id="close-obstacle-menu" class="buildable-close-button"></div>
+            </div>
+            <div class="timer-bar">
+                <div id="obstacle-img" class="buildable-big-image"></div>
+                <div id="obstacle-button" class="interaction-button"></div>
+                <div id="obstacle-money-content">
+                    <h3 id="obstacle-money"></h3>
+                    <div id="obstacle-money-checkmark" class="little-checkmark"></div>
+                </div>
+                <div id="obstacle-token-content">
+                    <h3 id="obstacle-token"></h3>
+                    <div id="obstacle-token-checkmark" class="little-checkmark"></div>
+                </div>
+            </div>
+            <div class="buildable-bottom"></div>
+        </div>
+    </div>
+    <div id="stash-wrap" class="menu-wrap">
+        <div id="stash">
+            <div id="stash-bar">
+                <div id="stash-capacity"></div>
+                <h3 id="stash-capacity-text"></h3>
+                <div id="closeStash"></div>
+            </div>
+            <div class="back-color">
+                <div id="stash-list"></div>
+                <div id="upgrade-stash-button-bar">
+                    <div id="upgrade-stash-button"></div>
+                </div>
+                <div id="stash-bottom"></div>
+            </div>
+        </div>
+    </div>
+    <div id="orders-wrap" class="menu-wrap">
+        <div id="orders">
+            <div id="orders-bar">
+                <div id="closeOrders"></div>
+                <div id="order-money-content">
+                    <div id="order-money-img"></div>
+                    <h3 id="order-money"></h3>
+                </div>
+                <div id="order-token-content">
+                    <div id="order-token-img"></div>
+                    <h3 id="order-token"></h3>
+                </div>
+            </div>
+            <div id="order-details"></div>
+            <div id="order-buttons-bar"></div>
+            <div id="order-details-bottom"></div>
+            <div id="orders-list"></div>
+            <div id="orders-bottom"></div>
+        </div>
+    </div>
+    <div id="building-menu-wrap" class="menu-wrap">
+        <div id="building-menu">
+            <div class="buildable-menu-bar">
+                <div id="close-building-menu" class="buildable-close-button"></div>
+            </div>
+            <div id="building-visual">
+                <div class="buildable-image-bar">
+                    <div id="building-img" class="buildable-big-image"></div>
+                </div>
+                <div class="building-middle"></div>
+                <div id="building-queue"></div>
+            </div>
+            <div class="building-middle"></div>
+            <div class="building-upgrade-bar">
+                <div id="upgrade-building" class="upgrade-buildable-button"></div>
+            </div>
+            <div id="building-menu-list" class="buildable-menu-list"></div>
+            <div class="buildable-bottom"></div>
+        </div>
+    </div>
+    <div id="animal-menu-wrap" class="menu-wrap">
+        <div id="animal-menu">
+            <div class="buildable-menu-bar">
+                <div id="close-animal-menu" class="buildable-close-button"></div>
+            </div>
+            <div class="buildable-image-bar">
+                <h3 id="animal-pen-name" class="name-text"></h3>
+                <div id="animal-img" class="buildable-big-image"></div>
+            </div>
+            <div class="timer-bar">
+                <h3 id="animal-timeToFinish" class="progress-timer"></h3>
+                <div id="animal-process-line" class="progress-line"></div>
+            </div>
+            <div class="building-middle"></div>
+            <div class="timer-bar">
+                <div id="animal-upgrade" class="upgrade-buildable-button"></div>
+                <div id="animal-start-button" class="interaction-button"></div>
+                <h3 id="feed-amount"></h3>
+            </div>          
+            <div class="buildable-bottom"></div>
+        </div>
+    </div>
+    <div id="field-menu-wrap" class="menu-wrap">
+        <div id="field-menu">
+            <div class="buildable-menu-bar">
+                <div id="close-field-menu" class="buildable-close-button"></div>
+            </div>
+            <div id="field-img-bar">
+                <div id="field-img" class="buildable-big-image"></div>
+                <div id="overlay-plant-img"></div>
+            </div>
+            <div class="timer-bar">
+                <h3 id="field-timeToFinish" class="progress-timer"></h3>
+                <div id="field-process-line" class="progress-line"></div>
+            </div>
+            <div class="building-middle"></div>
+            <div id="field-menu-list" class="buildable-menu-list"></div>
+            <div class="buildable-bottom"></div>
+        </div>
+    </div>
+    <div id="bush-menu-wrap" class="menu-wrap">
+        <div id="bush-menu">
+            <div class="buildable-menu-bar">
+                <div id="close-bush-menu" class="buildable-close-button"></div>
+            </div>
+            <div class="buildable-image-bar">
+                <h3 id="bush-name" class="name-text"></h3>
+                <div id="bush-img" class="buildable-big-image"></div>
+            </div>
+            <div class="timer-bar">
+                <h3 id="bush-timeToFinish" class="progress-timer"></h3>
+                <div id="bush-process-line" class="progress-line"></div>
+            </div>
+            <div class="building-middle"></div>
+            <div class="timer-bar">
+                <div id="bush-reset" class="interaction-button"></div>
+                <div id="bush-reset-price" class="amount-text"></div>
+            </div>
+            <div class="buildable-bottom"></div>
+        </div>
+    </div>
+    <div id="transaction-wrap" class="menu-wrap">
+        <div id="transaction-menu">
+            <div class="payment-menu-bar">
+                <div id="closeTransaction" class="exit_button_metal"></div>
+            </div>
+            <div id="transactions-content" class="transaction-menu-list"></div>
+            <div class="payment-menu-bottom"></div>
+        </div>
+    </div>    
+    <div id="deals-wrap" class="menu-wrap">
+        <div id="deals">
+            <div id="deals-bar" class="deals-menu-bar">
+                <div id="close-deals"></div>
+            </div>
+            <div class="deal-menu-list">
+                <div id="ton-wrap">
+                    <div id="deal-ton-img"></div>
+                    <h4 id="deal-ton-balance"></h4>
+                </div>
+                <div id="usdt-wrap">
+                    <div id="deal-usdt-img"></div>
+                    <h4 id="deal-usdt-balance"></h4>
+                </div>
+            </div>
+            <div id="deals-list" class="deal-menu-list"></div>
+            <div class="deals-menu-bar deal-bottom"></div>
+        </div>
+    </div>
+    <div id="selection-deal-wrap" class="menu-wrap">
+        <div id="selection-deal">
+            <div id="selection-deal-text-bar">
+                <h3 id="selection-deal-text"></h3>
+            </div>
+            <div id="selection-deal-buttons-bar">
+                <div id="selection-deal-yes">yes</div>
+                <div id="selection-deal-no">no</div>
+            </div>
+        </div>
+    </div>
+    <div id="payment-wrap" class="menu-wrap">
+        <div id="payments">
+            <div id="payment-bar" class="payment-menu-bar">
+                <div id="close-payments" class="exit_button_metal"></div>
+            </div>
+            <div class="payment-menu-list">
+                <div class="manual-pay">
+                    <h3 id="manual-pay-text"></h3>
+                </div>
+                <div class="manual-pay">
+                    <div id="adress-copy-div">
+                        <h3 id="adress-text"></h3>
+                        <h3 class="tap-to-copy"></h3>
+                    </div>
+                </div>
+                <div class="manual-pay">
+                    <h3 id="memo-warning-text"></h3>
+                </div>
+                <div class="manual-pay">
+                    <div id="memo-copy-div">
+                        <h3 id="memo-text"></h3>
+                        <h3 class="tap-to-copy"></h3>
+                    </div>
+                </div>
+                <div class="line-with-text">
+                    <h3 id="or-text"></h3>
+                </div>
+                <h3 id="payment-ton-text"></h3>
+                <div id="ton-connect">
+                    <div id="ton-connect-button"></div>
+                    <input id="ton-amount" type="text">
+                    <div id="proceed-to-buy">
+                        <h3 id="deposit-text"></h3>
+                    </div>
+                </div>
+            </div>
+            <div class="payment-menu-bottom"></div> 
+        </div>
+    </div>
+    <div id="selection-menu-wrap" class="menu-wrap">
+        <div id="selection-menu">
+            <div id="selection-text-bar">
+                <h3 id="selection-text"></h3>
+            </div>
+            <div id="selection-buttons-bar">
+                <div id="selection-yes">yes</div>
+                <div id="selection-no">no</div>
+            </div>
+        </div>
+    </div>
+    <div id="referral-menu-wrap" class="menu-wrap">
+        <div id="referral-menu">
+            <div id="referral-text-bar">
+                <h3 id="referral-text"></h3>
+                <h3 id="referral-link"></h3>
+            </div>
+            <div id="referral-buttons-bar">
+                <div id="referral-yes">copy</div>
+                <div id="referral-no">close</div>
+            </div>
+        </div>
+    </div>
+    <div id="manual-menu-wrap" class="menu-wrap">
+        <div id="manual-menu">
+            <div id="manual-crafts-list"></div>
+            <div id="manual-craft-description">
+                <div class="buildable-menu-bar">
+                    <div id="close-manual" class="buildable-close-button"></div>
+                </div>
+                <div id="manual-description">
+                    <div id="manual-back-button"></div>
+                    <div id="manual-img-bar"></div>
+                    <div id="manual-items-list"></div>
+                    <div id="manual-time-bar">
+                        <h3 id="manual-time"></h3>
+                    </div>
+                </div>
+            </div>
+            <div id="manual-bottom"></div>
+        </div>
+    </div>
+    <div id="bad-code-wrap" class="menu-wrap">
+        <h3 id="relogin-text"></h3>
+    </div>
+    <div id ="education-menu-wrap" class="menu-wrap"></div>
+    <script src="client/styles/styles.js"></script>
+    <script src="client/tonweb.js"></script>
+    <script src="client/tonconnect-ui.min.js"></script>
+    <script src="client/init.js" type="module"></script>
+</body>
+</html>

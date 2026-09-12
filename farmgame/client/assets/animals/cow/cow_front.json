@@ -1,0 +1,12 @@
+{
+    "localization": {
+        "name": {
+            "ru": "корова",
+            "en": "cow"
+        },
+        "description": {
+            "ru": "живет в коровнике",
+            "en": "lives in a cowshed"
+        }
+    }
+}

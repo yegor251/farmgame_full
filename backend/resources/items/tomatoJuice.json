@@ -1,0 +1,7 @@
+{
+    "name": "tomatoJuice",
+    "orderPrice": 193,
+    "orderTokenPrice": 400,
+    "orderAmountMin": 1,
+    "orderAmountMax": 6
+}

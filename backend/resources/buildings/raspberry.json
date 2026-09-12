@@ -1,0 +1,12 @@
+{
+    "name": "raspberry",
+    "price": 220,
+    "productLimit": 3,
+    "speed": 32400,
+    "sizex": 2,
+    "sizey": 1,
+    "mapLimit": 1600,
+    "products": {
+      "raspberry": 3
+    }
+}

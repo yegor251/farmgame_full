@@ -1,0 +1,13 @@
+{
+  "name": "cotton",
+  "orderPrice": 25,
+  "orderTokenPrice": 4,
+  "orderAmountMin": 3,
+  "orderAmountMax": 20,
+  "seed":{
+      "price": 50000,
+      "amount": 3,
+      "minimumLvl": 0,
+      "timeToGrow": 2400
+  }
+}

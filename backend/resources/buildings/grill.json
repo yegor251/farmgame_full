@@ -1,0 +1,87 @@
+{
+    "name": "grill",
+    "price": 3500,
+    "maxSlots": 1,
+    "sizex": -1,
+    "sizey": -1,
+    "maxLevel": 4,
+    "mapLimit": 2,
+    "workTypes":
+    {
+        "pancakes":
+        {
+            "minLevel": 1,
+            "timeToFinish": 900,
+            "items":
+            {
+                "egg": 3,
+                "brownSugar": 1
+            },
+            "products":
+            {
+                "pancakes": 1
+            }
+        },
+        "omelet":
+        {
+            "minLevel": 1,
+            "timeToFinish": 1800,
+            "items":
+            {
+                "egg": 4,
+                "bacon": 2
+            },
+            "products":
+            {
+                "omelet": 1
+            }
+        },
+        "hamburger":
+        {
+            "minLevel": 2,
+            "timeToFinish": 3000,
+            "items":
+            {
+                "bread": 2,
+                "bacon": 2
+            },
+            "products":
+            {
+                "hamburger": 1
+            }
+        },
+        "bakedTomato":
+        {
+            "minLevel": 3,
+            "timeToFinish": 2400,
+            "items":
+            {
+                "tomato": 2
+            },
+            "products":
+            {
+                "bakedTomato": 1
+            }
+        },
+        "bakedPotato":
+        {
+            "minLevel": 4,
+            "timeToFinish": 1800,
+            "items":
+            {
+                "potato": 2,
+                "cream": 1,
+                "cheese": 1,
+                "pepper": 1
+            },
+            "products":
+            {
+                "bakedPotato": 1
+            }
+        }
+    },
+    "upgradesPrice":
+    [
+        5000, 10000, 30000
+    ]
+  }

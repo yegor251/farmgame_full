@@ -1,0 +1,459 @@
+{
+    "map": [
+      {
+        "name": "stone_small",
+        "x": 1,
+        "y": 0
+      },
+      {
+        "name": "tree",
+        "x": 3,
+        "y": 0
+      },
+      {
+        "name": "tree_fall",
+        "x": 6,
+        "y": 0
+      },
+      {
+        "name": "stone_small",
+        "x": 8,
+        "y": 0
+      },
+      {
+        "name": "small_swamp",
+        "x": 11,
+        "y": 0
+      },
+      {
+        "name": "stone_big",
+        "x": 14,
+        "y": 0
+      },
+      {
+        "name": "big_stump",
+        "x": 16,
+        "y": 0
+      },
+      {
+        "name": "tree_big",
+        "x": 0,
+        "y": 1
+      },
+      {
+        "name": "tree",
+        "x": 4,
+        "y": 1
+      },
+      {
+        "name": "small_stump",
+        "x": 5,
+        "y": 1
+      },
+      {
+        "name": "tree",
+        "x": 7,
+        "y": 1
+      },
+      {
+        "name": "autumn_tight_tree",
+        "x": 13,
+        "y": 1
+      },
+      {
+        "name": "autumn_tree",
+        "x": 18,
+        "y": 1
+      },
+      {
+        "name": "stone_small",
+        "x": 3,
+        "y": 2
+      },
+      {
+        "name": "log",
+        "x": 5,
+        "y": 2
+      },
+      {
+        "name": "big_stump",
+        "x": 8,
+        "y": 2
+      },
+      {
+        "name": "tree",
+        "x": 10,
+        "y": 2
+      },
+      {
+        "name": "log",
+        "x": 11,
+        "y": 2
+      },
+      {
+        "name": "medium_swamp",
+        "x": 15,
+        "y": 2
+      },
+      {
+        "name": "small_stump",
+        "x": 19,
+        "y": 2
+      },
+      {
+        "name": "small_stump",
+        "x": 4,
+        "y": 3
+      },
+      {
+        "name": "stone_small",
+        "x": 7,
+        "y": 3
+      },
+      {
+        "name": "tree_big",
+        "x": 11,
+        "y": 3
+      },
+      {
+        "name": "stone_small",
+        "x": 18,
+        "y": 3
+      },
+      {
+        "name": "stone_small",
+        "x": 1,
+        "y": 4
+      },
+      {
+        "name": "log",
+        "x": 18,
+        "y": 4
+      },
+      {
+        "name": "log",
+        "x": 0,
+        "y": 5
+      },
+      {
+        "name": "small_stump",
+        "x": 10,
+        "y": 5
+      },
+      {
+        "name": "tree",
+        "x": 11,
+        "y": 5
+      },
+      {
+        "name": "autumn_tree",
+        "x": 14,
+        "y": 5
+      },
+      {
+        "name": "stone_big",
+        "x": 17,
+        "y": 5
+      },
+      {
+        "name": "small_stump",
+        "x": 1,
+        "y": 6
+      },
+      {
+        "name": "stone_small",
+        "x": 11,
+        "y": 6
+      },
+      {
+        "name": "small_swamp",
+        "x": 12,
+        "y": 6
+      },
+      {
+        "name": "log",
+        "x": 14,
+        "y": 6
+      },
+      {
+        "name": "stone_small",
+        "x": 0,
+        "y": 7
+      },
+      {
+        "name": "small_stump",
+        "x": 16,
+        "y": 7
+      },
+      {
+        "name": "small_stump",
+        "x": 19,
+        "y": 7
+      },
+      {
+        "name": "big_stump",
+        "x": 0,
+        "y": 8
+      },
+      {
+        "name": "stone_small",
+        "x": 3,
+        "y": 8
+      },
+      {
+        "name": "tree_fall",
+        "x": 10,
+        "y": 8
+      },
+      {
+        "name": "autumn_tight_tree",
+        "x": 12,
+        "y": 8
+      },
+      {
+        "name": "big_stump",
+        "x": 13,
+        "y": 8
+      },
+      {
+        "name": "autumn_tree_fall",
+        "x": 16,
+        "y": 8
+      },
+      {
+        "name": "small_swamp",
+        "x": 2,
+        "y": 9
+      },
+      {
+        "name": "tree_fall",
+        "x": 4,
+        "y": 9
+      },
+      {
+        "name": "small_stump",
+        "x": 7,
+        "y": 9
+      },
+      {
+        "name": "autumn_tree",
+        "x": 11,
+        "y": 9
+      },
+      {
+        "name": "tree_fall",
+        "x": 14,
+        "y": 9
+      },
+      {
+        "name": "stone_big",
+        "x": 16,
+        "y": 9
+      },
+      {
+        "name": "big_stump",
+        "x": 18,
+        "y": 9
+      },
+      {
+        "name": "tree_fall",
+        "x": 0,
+        "y": 10
+      },
+      {
+        "name": "tree",
+        "x": 4,
+        "y": 10
+      },
+      {
+        "name": "log",
+        "x": 7,
+        "y": 10
+      },
+      {
+        "name": "tree",
+        "x": 10,
+        "y": 10
+      },
+      {
+        "name": "log",
+        "x": 13,
+        "y": 10
+      },
+      {
+        "name": "log",
+        "x": 1,
+        "y": 11
+      },
+      {
+        "name": "autumn_tight_tree",
+        "x": 5,
+        "y": 11
+      },
+      {
+        "name": "tree",
+        "x": 6,
+        "y": 11
+      },
+      {
+        "name": "autumn_big_tree",
+        "x": 8,
+        "y": 11
+      },
+      {
+        "name": "big_stump",
+        "x": 12,
+        "y": 11
+      },
+      {
+        "name": "stone_small",
+        "x": 15,
+        "y": 11
+      },
+      {
+        "name": "autumn_tree",
+        "x": 16,
+        "y": 11
+      },
+      {
+        "name": "stone_small",
+        "x": 19,
+        "y": 11
+      },
+      {
+        "name": "huge_swamp",
+        "x": 0,
+        "y": 12
+      },
+      {
+        "name": "autumn_tree_fall",
+        "x": 11,
+        "y": 12
+      },
+      {
+        "name": "autumn_tree_fall",
+        "x": 15,
+        "y": 12
+      },
+      {
+        "name": "tree_fall",
+        "x": 18,
+        "y": 12
+      },
+      {
+        "name": "stone_big",
+        "x": 9,
+        "y": 13
+      },
+      {
+        "name": "medium_swamp",
+        "x": 13,
+        "y": 13
+      },
+      {
+        "name": "small_stump",
+        "x": 8,
+        "y": 14
+      },
+      {
+        "name": "autumn_tight_tree",
+        "x": 12,
+        "y": 14
+      },
+      {
+        "name": "big_stump",
+        "x": 16,
+        "y": 14
+      },
+      {
+        "name": "autumn_tree",
+        "x": 18,
+        "y": 14
+      },
+      {
+        "name": "stone_small",
+        "x": 9,
+        "y": 15
+      },
+      {
+        "name": "big_stump",
+        "x": 11,
+        "y": 15
+      },
+      {
+        "name": "stone_big",
+        "x": 16,
+        "y": 15
+      },
+      {
+        "name": "small_stump",
+        "x": 8,
+        "y": 16
+      },
+      {
+        "name": "autumn_tree_fall",
+        "x": 9,
+        "y": 16
+      },
+      {
+        "name": "log",
+        "x": 13,
+        "y": 16
+      },
+      {
+        "name": "stone_small",
+        "x": 12,
+        "y": 17
+      },
+      {
+        "name": "autumn_tree_fall",
+        "x": 15,
+        "y": 17
+      },
+      {
+        "name": "autumn_tree",
+        "x": 17,
+        "y": 17
+      },
+      {
+        "name": "stone_small",
+        "x": 8,
+        "y": 18
+      },
+      {
+        "name": "tree",
+        "x": 9,
+        "y": 18
+      },
+      {
+        "name": "autumn_big_tree",
+        "x": 10,
+        "y": 18
+      },
+      {
+        "name": "autumn_tight_tree",
+        "x": 14,
+        "y": 18
+      },
+      {
+        "name": "big_stump",
+        "x": 17,
+        "y": 18
+      },
+      {
+        "name": "stone_small",
+        "x": 19,
+        "y": 18
+      },
+      {
+        "name": "autumn_tree",
+        "x": 13,
+        "y": 19
+      },
+      {
+        "name": "log",
+        "x": 16,
+        "y": 19
+      }
+    ]
+  }

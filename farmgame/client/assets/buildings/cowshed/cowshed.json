@@ -1,0 +1,23 @@
+{
+    "name": "cowshed",
+    "price": 250,
+    "speed": 1800,
+    "maxAnimalAmount": 6,
+    "animalPrice": 500,
+    "sizex": 3,
+    "sizey": 3,
+    "maxLevel": 4,
+    "mapLimit": 3,
+    "intake":
+    {
+      "cowFeed": 1
+    },
+    "products":
+    {
+        "milk": 1
+    },
+    "upgradesPrice":
+    [
+        500, 7500, 22500
+    ]
+  }

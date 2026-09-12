@@ -1,0 +1,14 @@
+{
+    "sizex": 1,
+    "sizey": 1,
+    "localization": {
+        "name": {
+            "ru": "грядка",
+            "en": "garden"
+        },
+        "description": {
+            "ru": "грядка для выращивания растений",
+            "en": "garden for growing plants"
+        }
+    }
+}

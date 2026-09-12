@@ -1,0 +1,12 @@
+{
+    "localization": {
+        "name": {
+            "ru": "малина",
+            "en": "raspberry"
+        },
+        "description": {
+            "ru": "производит малину",
+            "en": "produces raspberry"
+        }
+    }
+}

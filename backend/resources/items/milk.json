@@ -1,0 +1,7 @@
+{
+    "name": "milk",
+    "orderPrice": 42,
+    "orderTokenPrice": 7,
+    "orderAmountMin": 1,
+    "orderAmountMax": 10
+}

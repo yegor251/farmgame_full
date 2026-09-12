@@ -1,0 +1,7 @@
+{
+    "name": "cookie",
+    "orderPrice": 82,
+    "orderTokenPrice": 72,
+    "orderAmountMin": 1,
+    "orderAmountMax": 6
+}

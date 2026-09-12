@@ -1,0 +1,13 @@
+{
+  "name": "soy",
+  "orderPrice": 10,
+  "orderTokenPrice": 0,
+  "orderAmountMin": 5,
+  "orderAmountMax": 30,
+  "seed":{
+      "price": 250,
+      "amount": 3,
+      "minimumLvl": 0,
+      "timeToGrow": 600
+  }
+}

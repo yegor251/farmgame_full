@@ -1,0 +1,55 @@
+{
+  "name": "sugar_factory",
+  "price": 1500,
+  "maxSlots": 1,
+  "sizex": 2,
+  "sizey": 2,
+  "maxLevel": 3,
+  "mapLimit": 2,
+  "workTypes":
+  {
+      "brownSugar":
+      {
+          "minLevel": 1,
+          "timeToFinish": 600,
+          "items":
+          {
+              "sugarCane": 1
+          },
+          "products":
+          {
+              "brownSugar": 1
+          }
+      },
+      "whiteSugar":
+      {
+          "minLevel": 2,
+          "timeToFinish": 1200,
+          "items":
+          {
+              "sugarCane": 2
+          },
+          "products":
+          {
+              "whiteSugar": 1
+          }
+      },
+      "syrup":
+      {
+          "minLevel": 3,
+          "timeToFinish": 2400,
+          "items":
+          {
+              "sugarCane": 3
+          },
+          "products":
+          {
+              "syrup": 1
+          }
+      }
+  },
+  "upgradesPrice":
+  [
+      3000, 9000
+  ]
+}

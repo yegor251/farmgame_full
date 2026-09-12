@@ -1,0 +1,7 @@
+{
+    "name": "creamCake",
+    "orderPrice": 192,
+    "orderTokenPrice": 230,
+    "orderAmountMin": 1,
+    "orderAmountMax": 4
+}

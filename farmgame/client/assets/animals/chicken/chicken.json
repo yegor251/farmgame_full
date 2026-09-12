@@ -1,0 +1,10 @@
+{
+    "name": "chicken",
+    "size": {
+      "w": 0.7,
+      "h": 0.7
+    },
+    "badZone": 4,
+    "price": 80
+  }
+  

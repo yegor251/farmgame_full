@@ -1,0 +1,12 @@
+{
+    "name": "apple_tree",
+    "price": 160,
+    "productLimit": 3,
+    "speed": 28800,
+    "sizex": 1,
+    "sizey": 1,
+    "mapLimit": 1600,
+    "products": {
+      "apple": 3
+    }
+}

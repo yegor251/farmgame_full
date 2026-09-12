@@ -1,0 +1,14 @@
+{
+    "productx": 19,
+    "producty": 12,
+    "localization": {
+        "name": {
+            "ru": "молокозавод",
+            "en": "dairy"
+        },
+        "description": {
+            "ru": "производит молочные продукты",
+            "en": "produces dairy products"
+        }
+    }
+}

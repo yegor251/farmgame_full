@@ -1,0 +1,14 @@
+{
+    "productx": 11,
+    "producty": 19,
+    "localization": {
+        "name": {
+            "ru": "печь для пирогов",
+            "en": "oven"
+        },
+        "description": {
+            "ru": "производит торты",
+            "en": "produces cakes"
+        }
+    }
+}

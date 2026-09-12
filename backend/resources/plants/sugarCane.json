@@ -1,0 +1,13 @@
+{
+  "name": "sugarCane",
+  "orderPrice": 14,
+  "orderTokenPrice": 1,
+  "orderAmountMin": 3,
+  "orderAmountMax": 25,
+  "seed":{
+      "price": 500,
+      "amount": 3,
+      "minimumLvl": 0,
+      "timeToGrow": 900
+  }
+}

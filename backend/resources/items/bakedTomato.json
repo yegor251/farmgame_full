@@ -1,0 +1,7 @@
+{
+    "name": "bakedTomato",
+    "orderPrice": 102,
+    "orderTokenPrice": 80,
+    "orderAmountMin": 1,
+    "orderAmountMax": 4
+}

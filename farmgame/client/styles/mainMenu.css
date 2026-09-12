@@ -1,0 +1,187 @@
+#main-menu {
+    width: 80%;
+    max-height: 90%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    overflow: visible;
+}
+.main-menu-bar {
+    width: 100%;
+    aspect-ratio: 270 / 39;
+    position: relative;
+    overflow: visible;
+    background-image: url('../assets/design/main_menu_bar.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+}
+#farm-name-cont {
+    width: 76.3%;
+    height: 56.4%;
+    position: absolute;
+    left: 12%;
+    top: 22%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+#farm-name {
+    font-size: 4.7vw;
+    /* color: #BBB4A6; */
+}
+#close-main-menu {
+    position: absolute;
+    height: 82%;
+    width: auto;
+    aspect-ratio: 1 / 1;
+    background-image: url('../assets/design/exit_main_button_1.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    image-rendering: pixelated;
+    right: -5%;
+    top: 75%;
+    transform: translateY(-50%);
+}
+#main-menu-body {
+    background-image: url('../assets/design/main_menu_body.png');
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    padding-top: 3%;
+    padding-left: 7%;
+    padding-right: 7%;
+    box-sizing: border-box;
+    background-color: #E6DECF;
+}
+.balance-content {
+    display: flex;
+    flex-direction: row;
+    padding-bottom: 2.5vw;
+}
+.money-balance-icon, .token-balance-icon, .ton-balance-icon,  #token-withdraw-button,
+.usdt-balance-icon, .donate-plus-button, #networth-question-button {
+    width: 11%;
+    aspect-ratio: 1/1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+}
+#token-withdraw-button {
+    margin-left: 3%;
+    background-image: url('../assets/design/withdraw_butt_1.png');
+}
+.money-balance-icon {
+    background-image: url('../assets/design/money_img.png');
+}
+.token-balance-icon {
+    background-image: url('../assets/design/token.png');
+}
+.ton-balance-icon {
+    background-image: url('../assets/design/ton.png');
+}
+.usdt-balance-icon {
+    background-image: url('../assets/design/usdt.png');
+}
+.balance-place {
+    width: 58%;
+    height: auto;
+    margin-left: 3%;
+    margin-right: 3%;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+}
+.balance {
+    margin-left: 1%;
+    color: white;
+    font-size: 4.5vw;
+    text-align: left;
+}
+#money-balance-place {
+    background-color: #AAA421;
+    border: 0.7vw solid #D0C82C;
+    border-radius: 0;
+}
+#networth-balance-place {
+    background-color: #ADB6BF;
+    border: 0.7vw solid #CFD8E1;
+    border-radius: 0;
+}
+#token-balance-place {
+    background-color: #37955E;
+    border: 0.7vw solid #45BB76;
+    border-radius: 0;
+}
+#ton-balance-place {
+    background-color: #7F9DBB;
+    border: 0.7vw solid #9ec4ea;
+    border-radius: 0;
+}
+#usdt-balance-place {
+    background-color: #3B9973;
+    border: 0.7vw solid #45BB8B;
+    border-radius: 0;
+}
+#networth-question-button {
+    background-image: url('../assets/design/question_button_1.png');
+}
+.donate-plus-button {
+    background-image: url('../assets/design/add_button_1.png');
+}
+#main-menu-buttons {
+    padding: 5%;
+    padding-bottom: 0%;
+    box-sizing: border-box;
+    display: flex;
+    flex-wrap: wrap;
+}
+.main-menu-button {
+    width: 60%;
+    aspect-ratio: 1/1;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+    margin-left: 10%;
+    margin-right: 10%;
+    box-sizing: border-box;
+}
+.main-menu-button-text {
+    color: black;
+    width: 100%;
+    text-align: center;
+    margin-bottom: 1vw;
+    font-size: 5vw;
+}
+.main-menu-button-cont {
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#open-transactions {
+    background-image: url('../assets/design/button_TRANS_1.png');
+}
+#booster {
+    background-image: url('../assets/design/button_buster_1.png');
+}
+#open-deals {
+    background-image: url('../assets/design/button_donat_1.png');
+}
+.main-menu-bottom {
+    width: 100%;
+    aspect-ratio: 270 / 11;
+    background-image: url('../assets/design/main_menu_bottom.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    image-rendering: pixelated;
+}

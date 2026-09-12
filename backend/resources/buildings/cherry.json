@@ -1,0 +1,12 @@
+{
+    "name": "cherry",
+    "price": 410,
+    "productLimit": 3,
+    "speed": 46800,
+    "sizex": 1,
+    "sizey": 1,
+    "mapLimit": 1600,
+    "products": {
+      "cherry": 3
+    }
+}
