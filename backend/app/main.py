@@ -19,7 +19,9 @@ from app.ws.connection_handler import ConnectionHandler
 
 logging.basicConfig(level=logging.INFO if settings.debug else logging.WARNING)
 
-_init_data_validator = TelegramInitDataValidator(settings.bot_token, settings.init_data_ttl_seconds)
+_init_data_validator = TelegramInitDataValidator(
+    settings.bot_token, settings.init_data_ttl_seconds, settings.dev_fallback_tg_id
+)
 _snapshot_store = SnapshotStore(settings.sessions_dir)
 
 

@@ -56,6 +56,24 @@ async def test_activate_user_by_id_marks_user_active(session: AsyncSession) -> N
     assert record.active is True
 
 
+async def test_create_user_persists_new_inactive_user(session: AsyncSession) -> None:
+    repository = SqlUserRepository(session)
+
+    assert await repository.create_user(1, 7) is True
+
+    record = await repository.player_by_id(1)
+    assert record is not None
+    assert record.ref_id == 7
+    assert record.active is False
+
+
+async def test_create_user_rejects_duplicate_id(session: AsyncSession) -> None:
+    repository = SqlUserRepository(session)
+    assert await repository.create_user(1, 0) is True
+
+    assert await repository.create_user(1, 0) is False
+
+
 async def test_get_deposits_by_user_id_returns_only_active_deposits(session: AsyncSession) -> None:
     session.add_all(
         [

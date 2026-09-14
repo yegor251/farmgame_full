@@ -3,11 +3,20 @@ import hmac
 import time
 from urllib.parse import unquote
 
+from pydantic import BaseModel
+
+
+class TelegramAuthResult(BaseModel):
+    tg_id: int
+    is_verified: bool
+    ref_id: int = 0
+
 
 class TelegramInitDataValidator:
-    def __init__(self, bot_token: str, ttl_seconds: int | None = None) -> None:
+    def __init__(self, bot_token: str, ttl_seconds: int | None = None, dev_fallback_tg_id: int = 0) -> None:
         self._bot_token = bot_token
         self._ttl_seconds = ttl_seconds
+        self._dev_fallback_tg_id = dev_fallback_tg_id
 
     def _parse(self, init_data: str) -> dict[str, str]:
         parsed: dict[str, str] = {}
@@ -30,9 +39,9 @@ class TelegramInitDataValidator:
             fields[key.strip('"')] = value.strip('"')
         return fields.get("id")
 
-    def check(self, init_data: str) -> str | None:
+    def check(self, init_data: str) -> TelegramAuthResult | None:
         if init_data.isdigit():
-            return init_data
+            return TelegramAuthResult(tg_id=self._dev_fallback_tg_id, is_verified=False)
 
         parsed = self._parse(init_data)
         if "hash" not in parsed or "user" not in parsed:
@@ -59,4 +68,11 @@ class TelegramInitDataValidator:
             if time.time() - auth_date > self._ttl_seconds:
                 return None
 
-        return self._parse_user_id(parsed["user"])
+        user_id = self._parse_user_id(parsed["user"])
+        if user_id is None or not user_id.isdigit():
+            return None
+
+        start_param = parsed.get("start_param", "")
+        ref_id = int(start_param) if start_param.isdigit() else 0
+
+        return TelegramAuthResult(tg_id=int(user_id), is_verified=True, ref_id=ref_id)

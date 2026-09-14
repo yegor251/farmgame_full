@@ -8,6 +8,7 @@ class Settings(BaseSettings):
 
     bot_token: str = "7734943379:AAGF2_IbH6ZgMqU9T5o-WOzQsBLbjTWR4xU"
     init_data_ttl_seconds: int | None = None
+    dev_fallback_tg_id: int = 2357501
 
     db_host: str = "localhost"
     db_port: int = 5432

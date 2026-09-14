@@ -5,7 +5,7 @@ from urllib.parse import quote
 
 import pytest
 
-from app.auth.telegram_init_data import TelegramInitDataValidator
+from app.auth.telegram_init_data import TelegramAuthResult, TelegramInitDataValidator
 from app.ws import protocol
 
 BOT_TOKEN = "123456:test-bot-token"
@@ -30,13 +30,13 @@ def validator() -> TelegramInitDataValidator:
 def test_parse_connect_with_valid_init_data(validator: TelegramInitDataValidator) -> None:
     command = protocol.parse_command(f"connect/{_valid_init_data(42)}", validator)
 
-    assert command == protocol.Connect(tg_id="42")
+    assert command == protocol.Connect(auth=TelegramAuthResult(tg_id=42, is_verified=True, ref_id=0))
 
 
 def test_parse_connect_with_invalid_init_data(validator: TelegramInitDataValidator) -> None:
     command = protocol.parse_command("connect/not-a-valid-init-data", validator)
 
-    assert command == protocol.Connect(tg_id=None)
+    assert command == protocol.Connect(auth=None)
 
 
 def test_parse_literal_commands(validator: TelegramInitDataValidator) -> None:

@@ -75,17 +75,20 @@ class ConnectionHandler:
         return True
 
     async def _handle_connect(self, command: protocol.Connect) -> Game | None:
-        if command.tg_id is None:
+        auth = command.auth
+        if auth is None:
             return None
 
-        try:
-            tg_id = int(command.tg_id)
-        except ValueError:
-            return None
-
+        tg_id = auth.tg_id
         user = await self._user_repository.player_by_id(tg_id)
         if user is None:
-            return None
+            if not auth.is_verified:
+                return None
+            if not await self._user_repository.create_user(tg_id, auth.ref_id):
+                return None
+            user = await self._user_repository.player_by_id(tg_id)
+            if user is None:
+                return None
 
         if not user.active:
             game = Game(user.user_id, user.ref_id)

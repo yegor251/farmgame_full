@@ -36,6 +36,16 @@ class SqlUserRepository:
             return False
         return True
 
+    async def create_user(self, user_id: int, ref_id: int) -> bool:
+        try:
+            self._session.add(UserRow(user_id=user_id, ref_id=ref_id, active=False))
+            await self._session.commit()
+        except SQLAlchemyError:
+            logger.exception("Occured while trying to create user(%s, %s)", user_id, ref_id)
+            await self._session.rollback()
+            return False
+        return True
+
 
 class SqlDepositRepository:
     def __init__(self, session: AsyncSession) -> None:

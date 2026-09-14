@@ -1,11 +1,11 @@
 from dataclasses import dataclass
 
-from app.auth.telegram_init_data import TelegramInitDataValidator
+from app.auth.telegram_init_data import TelegramAuthResult, TelegramInitDataValidator
 
 
 @dataclass
 class Connect:
-    tg_id: str | None
+    auth: TelegramAuthResult | None
 
 
 @dataclass

@@ -5,12 +5,18 @@ from urllib.parse import quote
 
 import pytest
 
-from app.auth.telegram_init_data import TelegramInitDataValidator
+from app.auth.telegram_init_data import TelegramAuthResult, TelegramInitDataValidator
 
 BOT_TOKEN = "123456:test-bot-token"
 
 
-def _build_init_data(*, user_id: int = 42, auth_date: int | None = None, tamper: bool = False) -> str:
+def _build_init_data(
+    *,
+    user_id: int = 42,
+    auth_date: int | None = None,
+    tamper: bool = False,
+    start_param: str | None = None,
+) -> str:
     if auth_date is None:
         auth_date = int(time.time())
 
@@ -19,6 +25,8 @@ def _build_init_data(*, user_id: int = 42, auth_date: int | None = None, tamper:
         "auth_date": str(auth_date),
         "query_id": "AAabc123",
     }
+    if start_param is not None:
+        fields["start_param"] = start_param
     data_check_string = "\n".join(f"{key}={value}" for key, value in sorted(fields.items()))
     secret_key = hmac.new(b"WebAppData", BOT_TOKEN.encode("utf-8"), hashlib.sha256).digest()
     received_hash = hmac.new(secret_key, data_check_string.encode("utf-8"), hashlib.sha256).hexdigest()
@@ -29,12 +37,20 @@ def _build_init_data(*, user_id: int = 42, auth_date: int | None = None, tamper:
     return "&".join(f"{key}={quote(value, safe='')}" for key, value in fields.items())
 
 
-def test_check_returns_user_id_for_valid_signature() -> None:
+def test_check_returns_verified_result_for_valid_signature() -> None:
     validator = TelegramInitDataValidator(BOT_TOKEN)
 
     result = validator.check(_build_init_data(user_id=42))
 
-    assert result == "42"
+    assert result == TelegramAuthResult(tg_id=42, is_verified=True, ref_id=0)
+
+
+def test_check_extracts_ref_id_from_start_param() -> None:
+    validator = TelegramInitDataValidator(BOT_TOKEN)
+
+    result = validator.check(_build_init_data(user_id=42, start_param="777"))
+
+    assert result == TelegramAuthResult(tg_id=42, is_verified=True, ref_id=777)
 
 
 def test_check_rejects_tampered_hash() -> None:
@@ -64,17 +80,21 @@ def test_check_accepts_signature_within_ttl() -> None:
 
     result = validator.check(_build_init_data(user_id=7))
 
-    assert result == "7"
+    assert result == TelegramAuthResult(tg_id=7, is_verified=True, ref_id=0)
 
 
 def test_check_ignores_ttl_when_not_configured() -> None:
     validator = TelegramInitDataValidator(BOT_TOKEN)
     old_init_data = _build_init_data(auth_date=0)
 
-    assert validator.check(old_init_data) == "42"
+    result = validator.check(old_init_data)
+
+    assert result == TelegramAuthResult(tg_id=42, is_verified=True, ref_id=0)
 
 
-def test_check_accepts_plain_numeric_tg_id_as_dev_fallback() -> None:
-    validator = TelegramInitDataValidator(BOT_TOKEN)
+def test_check_maps_plain_numeric_input_to_configured_dev_fallback() -> None:
+    validator = TelegramInitDataValidator(BOT_TOKEN, dev_fallback_tg_id=2357501)
 
-    assert validator.check("2357501") == "2357501"
+    result = validator.check("999999999")
+
+    assert result == TelegramAuthResult(tg_id=2357501, is_verified=False, ref_id=0)
