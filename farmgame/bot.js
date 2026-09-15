@@ -15,7 +15,7 @@ bot.onText(/\/start/, (msg) => {
     const options = {
         reply_markup: {
             inline_keyboard: [
-                [{ text: 'Open Web App', web_app: { url: 'https://farmgame-rclc.onrender.com' } }]
+                [{ text: 'Open Web App', web_app: { url: 'https://tonfarmg.site' } }]
             ]
         }
     };
