@@ -12,7 +12,7 @@ class SocketClient{
     {
         this.requestQueue = new Array()
         const wsProtocol = window.location.protocol === 'https' ? 'wss' : 'ws';
-        this.socket = new WebSocket(`${wsProtocol}://${window.location.hostname}:8000`);
+        this.socket = new WebSocket(`${wsProtocol}://${window.location.hostname}`);
         this.gameSessionPromiseResolve = null;
         this.gameSessionPromise = new Promise((resolve) => {
             this.gameSessionPromiseResolve = resolve;

@@ -3,6 +3,7 @@ var express = require('express');
 var https = require('https');
 var http = require('http');
 var fs = require('fs');
+var { createProxyMiddleware } = require('http-proxy-middleware');
 
 var app = express();
 
@@ -31,12 +32,23 @@ app.use((err, req, res, next) => {
     res.status(500).send('Something broke!');
 });
 
+var wsProxy = createProxyMiddleware({
+    target: 'http://127.0.0.1:8000',
+    ws: true,
+    changeOrigin: true
+});
+
 var options = {
     key: fs.readFileSync('/etc/letsencrypt/live/tonfarmg.site/privkey.pem'),
     cert: fs.readFileSync('/etc/letsencrypt/live/tonfarmg.site/fullchain.pem')
 };
 
-https.createServer(options, app).listen(443, function() {
+var httpsServer = https.createServer(options, app);
+
+// Проксируем только WebSocket-апгрейды, обычные HTTP идут в Express
+httpsServer.on('upgrade', wsProxy.upgrade);
+
+httpsServer.listen(443, function() {
     console.log('HTTPS server running on port 443');
 });
 
