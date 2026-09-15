@@ -1,5 +1,8 @@
 var bodyParser = require('body-parser');
 var express = require('express');
+var https = require('https');
+var http = require('http');
+var fs = require('fs');
 
 var app = express();
 
@@ -28,7 +31,18 @@ app.use((err, req, res, next) => {
     res.status(500).send('Something broke!');
 });
 
-var server = app.listen(8082, function() {
-    var port = server.address().port;
-    console.log('Server running at port %s', port);
+var options = {
+    key: fs.readFileSync('/etc/letsencrypt/live/tonfarmg.site/privkey.pem'),
+    cert: fs.readFileSync('/etc/letsencrypt/live/tonfarmg.site/fullchain.pem')
+};
+
+https.createServer(options, app).listen(443, function() {
+    console.log('HTTPS server running on port 443');
+});
+
+http.createServer(function(req, res) {
+    res.writeHead(301, { Location: 'https://' + req.headers.host + req.url });
+    res.end();
+}).listen(80, function() {
+    console.log('HTTP server running on port 80 (redirect to HTTPS)');
 });
