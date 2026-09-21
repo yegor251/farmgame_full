@@ -60,7 +60,7 @@ class TelegramInitDataValidator:
         calculated_hash = hmac.new(
             secret_key, data_check_string.encode("utf-8"), hashlib.sha256
         ).hexdigest()
-
+        print("хеши", calculated_hash, received_hash)
         if calculated_hash != received_hash:
             return None
 
@@ -73,6 +73,7 @@ class TelegramInitDataValidator:
                 return None
 
         user_id = self._parse_user_id(parsed["user"])
+        print("user_id", user_id)
         if user_id is None or not user_id.isdigit():
             return None
 
