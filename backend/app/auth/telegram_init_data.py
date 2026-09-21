@@ -40,15 +40,11 @@ class TelegramInitDataValidator:
         return fields.get("id")
 
     def check(self, init_data: str) -> TelegramAuthResult | None:
-        print("raw data", init_data)
         if init_data.isdigit():
-            print("isdigit", self._dev_fallback_tg_id)
             return TelegramAuthResult(tg_id=self._dev_fallback_tg_id, is_verified=False)
 
         parsed = self._parse(init_data)
-        print("parsed", parsed)
         if "hash" not in parsed or "user" not in parsed:
-            print("fail parse")
             return None
 
         received_hash = parsed["hash"]
@@ -60,7 +56,7 @@ class TelegramInitDataValidator:
         calculated_hash = hmac.new(
             secret_key, data_check_string.encode("utf-8"), hashlib.sha256
         ).hexdigest()
-        print("хеши", calculated_hash, received_hash)
+
         if calculated_hash != received_hash:
             return None
 
@@ -73,11 +69,9 @@ class TelegramInitDataValidator:
                 return None
 
         user_id = self._parse_user_id(parsed["user"])
-        print("user_id", user_id)
         if user_id is None or not user_id.isdigit():
             return None
 
         start_param = parsed.get("start_param", "")
         ref_id = int(start_param) if start_param.isdigit() else 0
-        print("done")
         return TelegramAuthResult(tg_id=int(user_id), is_verified=True, ref_id=ref_id)
