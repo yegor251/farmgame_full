@@ -149,7 +149,6 @@ def parse_command(message: str, init_data_validator: TelegramInitDataValidator) 
     try:
         if prefix == "connect":
             parts = _split(message, 2)
-            print("части", parts)
             if parts is None:
                 return Unknown()
             return Connect(init_data_validator.check(parts[1]))
