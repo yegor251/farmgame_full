@@ -40,6 +40,7 @@ class ConnectionHandler:
         try:
             while True:
                 message = await self._websocket.receive_text()
+                logger.info("RECEIVED: %s", message)
                 should_continue = await self._handle_message(message)
                 if not should_continue:
                     return
