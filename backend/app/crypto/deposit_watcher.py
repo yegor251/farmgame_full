@@ -114,8 +114,18 @@ class DepositWatcher:
         deposits = self._extract_new_deposits(events)
         self._advance_cursor(events)
         for deposit in reversed(deposits):
-            if not await self._deposit_repository.insert_deposit(deposit):
+            inserted = await self._deposit_repository.insert_deposit(deposit)
+            if not inserted:
                 logger.error("Failed to persist deposit %s", deposit.transaction_id)
+                continue
+            print(
+                f"[DepositWatcher] Новый депозит: "
+                f"tx_id={deposit.transaction_id}, "
+                f"tg_id={deposit.tg_id}, "
+                f"amount={deposit.amount}, "
+                f"jetton={deposit.jetton_signature}, "
+                f"time={deposit.time_stamp}"
+            )
 
     async def run(self) -> None:
         while True:
