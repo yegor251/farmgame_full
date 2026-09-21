@@ -6,7 +6,7 @@ from pydantic_settings import BaseSettings, SettingsConfigDict
 class Settings(BaseSettings):
     model_config = SettingsConfigDict(env_prefix="FARMGAME_", env_file=".env", extra="ignore")
 
-    bot_token: str = "7734943379:AAGF2_IbH6ZgMqU9T5o-WOzQsBLbjTWR4xU"
+    bot_token: str = "7106833924:AAHUplflybYnlTaizULr4HDmQtRbEy5k6pY"
     init_data_ttl_seconds: int | None = None
     dev_fallback_tg_id: int = 2357501
 
