@@ -21,7 +21,7 @@ class TelegramInitDataValidator:
     def _parse(self, init_data: str) -> dict[str, str]:
         parsed: dict[str, str] = {}
         for pair in init_data.split("&"):
-            key_value = pair.split("=")
+            key_value = pair.split("=", 1)
             if len(key_value) != 2:
                 continue
             key, value = key_value
