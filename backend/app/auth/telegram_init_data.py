@@ -1,6 +1,7 @@
 import hashlib
 import hmac
 import time
+import json
 from urllib.parse import unquote
 
 from pydantic import BaseModel
@@ -29,15 +30,12 @@ class TelegramInitDataValidator:
         return parsed
 
     def _parse_user_id(self, raw_user: str) -> str | None:
-        body = raw_user.removeprefix("{").removesuffix("}")
-        fields: dict[str, str] = {}
-        for pair in body.split(","):
-            key_value = pair.split(":", 1)
-            if len(key_value) != 2:
-                continue
-            key, value = (part.strip() for part in key_value)
-            fields[key.strip('"')] = value.strip('"')
-        return fields.get("id")
+        try:
+            data = json.loads(raw_user)
+        except (json.JSONDecodeError, TypeError):
+            return None
+        user_id = data.get("id")
+        return str(user_id) if user_id is not None else None
 
     def check(self, init_data: str) -> TelegramAuthResult | None:
         if init_data.isdigit():
