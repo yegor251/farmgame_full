@@ -78,5 +78,5 @@ class TelegramInitDataValidator:
 
         start_param = parsed.get("start_param", "")
         ref_id = int(start_param) if start_param.isdigit() else 0
-
+        print("done")
         return TelegramAuthResult(tg_id=int(user_id), is_verified=True, ref_id=ref_id)
