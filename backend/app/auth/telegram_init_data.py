@@ -40,11 +40,15 @@ class TelegramInitDataValidator:
         return fields.get("id")
 
     def check(self, init_data: str) -> TelegramAuthResult | None:
+        print("raw data", init_data)
         if init_data.isdigit():
+            print("isdigit", self._dev_fallback_tg_id)
             return TelegramAuthResult(tg_id=self._dev_fallback_tg_id, is_verified=False)
 
         parsed = self._parse(init_data)
+        print("parsed", parsed)
         if "hash" not in parsed or "user" not in parsed:
+            print("fail parse")
             return None
 
         received_hash = parsed["hash"]
