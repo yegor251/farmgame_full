@@ -301,13 +301,12 @@ class Init {
         RES.buildingNames.serviceBuildings.forEach(name => {
             tiles[RES.buildings[name].i][RES.buildings[name].j].createBuilding(name)
         });
-        socketClient.send(`connect/2357501`)
-//        if (Object.keys(window.Telegram.WebApp.initDataUnsafe).length != 0) {
-//            console.log(window.Telegram.WebApp)
-//            socketClient.send(`connect/${window.Telegram.WebApp.initData}`)
-//        } else {
-//            socketClient.send(`connect/2357501`)
-//        }
+        if (Object.keys(window.Telegram.WebApp.initDataUnsafe).length != 0) {
+            console.log(window.Telegram.WebApp)
+            socketClient.send(`connect/${window.Telegram.WebApp.initData}`)
+        } else {
+            socketClient.send(`connect/2357501`)
+        }
 
         loader.updateLoading(loader.progress + 25, 'Init game session')
         await socketClient.gameSessionPromise;
