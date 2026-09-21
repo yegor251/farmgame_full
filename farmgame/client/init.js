@@ -7,60 +7,39 @@ import GVAR from "./globalVars/global.js";
 import loader from "./loadingScreen.js";
 import { spin } from "./gameClasses/spin/spin.js";
 
-class SocketClient {
-    constructor() {
-        this.requestQueue = new Array();
+class SocketClient{
+    constructor()
+    {
+        this.requestQueue = new Array()
         this.socket = new WebSocket(`wss://${window.location.hostname}:8000/`);
         this.gameSessionPromiseResolve = null;
         this.gameSessionPromise = new Promise((resolve) => {
             this.gameSessionPromiseResolve = resolve;
         });
-        this.pingInterval = null;
-
-        this.socket.onopen = () => {
-            console.log('WS: OPEN');
-
-            // Сразу отправляем connect, не дожидаясь загрузки ресурсов
-            if (Object.keys(window.Telegram.WebApp.initDataUnsafe).length != 0) {
-                this.send(`connect/${window.Telegram.WebApp.initData}`);
-            } else {
-                this.send(`connect/2357501`);
-            }
-
-            // Пинг только после открытия сокета
-            this.pingInterval = setInterval(() => {
-                this.send('ping');
-            }, 50000);
-        };
-
-        this.socket.onclose = (e) => {
-            console.log('WS: CLOSE', e.code, e.reason);
-            if (this.pingInterval) {
-                clearInterval(this.pingInterval);
-                this.pingInterval = null;
-            }
-        };
-
-        this.socket.onerror = (e) => {
-            console.log('WS: ERROR', e);
-        };
-
+        this.interval = setInterval(() => {
+            this.send('ping')
+        }, 50000);
         this.socket.onmessage = (m) => {
-            const data = JSON.parse(m.data);
-            console.log(data);
+            const data = JSON.parse(m.data)
+            console.log(data)
 
-            if (data.dataType == "game-session") {
-                this.initGameSession(data);
-            } else if (data.dataType == "game-session-regen") {
-                this.regenPlayer(data);
-            } else if (data.dataType == "result-code") {
-                this.handleResultCode(data.code);
+            if (data.dataType == "game-session")
+            {
+                this.initGameSession(data)
             }
-        };
+            else if (data.dataType == "game-session-regen")
+            {
+                this.regenPlayer(data)
+            }
+            else if (data.dataType == "result-code")
+            {
+                this.handleResultCode(data.code)
+            }
+        }
     }
-
     _decipherRequest(request) {
         let parts = request.split('/');
+
         let requestType = parts[0];
         let result = { requestType: requestType };
 
@@ -129,140 +108,138 @@ class SocketClient {
 
         return result;
     }
-
-    handleResultCode(code) {
-        console.log(this.requestQueue[0]);
-        if (code == 200) {
-            let request = this._decipherRequest(this.requestQueue[0]);
+    handleResultCode(code){
+        console.log(this.requestQueue[0])
+        if (code == 200){
+            let request = this._decipherRequest(this.requestQueue[0])
             if (request.requestType == 'use') {
-                tiles[request.x][request.y].use(request.name);
-            } else if (request.requestType == 'activateb') {
-                player.realActivateBooster();
-            } else if (request.requestType == 'place' && RES.buildingNames.bush.includes(request.name)) {
-                tiles[request.x][request.y].use();
+                tiles[request.x][request.y].use(request.name)
+            } else if (request.requestType == 'activateb'){
+                player.realActivateBooster()
+            } else if (request.requestType == 'place' && RES.buildingNames.bush.includes(request.name)){
+                tiles[request.x][request.y].use()
             }
         }
         if (code != 200 && this.requestQueue[0] != 'ping')
-            GVAR.showBadCodeMenu();
-        console.log('код', code);
-        this.requestQueue.shift();
+            GVAR.showBadCodeMenu()
+        console.log('код',code)
+        this.requestQueue.shift()
     }
-
     send(request) {
-        console.log('send:', request);
+        console.log('send')
         if (this.socket.readyState === WebSocket.OPEN) {
             this.socket.send(request);
-            if (request.split('/')[0] != 'connect' && request.split('/')[0] != 'regen') {
+            if (request.split('/')[0] != 'connect' && request.split('/')[0] != 'regen'){
                 this.requestQueue.push(request);
             }
-            console.log(this.requestQueue);
+            console.log(this.requestQueue)
         } else {
-            console.log('сокет не открыт, readyState =', this.socket.readyState);
+            GVAR.showBadCodeMenu()
+            console.log('отключился сокет')
+            location.reload();
         }
     }
+  	regenPlayer(data){
+		player._inventory = data.player.Inventory.map
+        player._inventorySize = 70 + 10 * data.player.Inventory.level
+		player._money = data.player.money
+        player._networth = data.player.networth
+        player._tokenBalance = data.wallet.tokenBalance
+        player.updateMoney()
+        player._tonBalance = data.wallet.tonBalance
+        player._usdtBalance = data.wallet.usdtBalance
 
-    regenPlayer(data) {
-        player._inventory = data.player.Inventory.map;
-        player._inventorySize = 70 + 10 * data.player.Inventory.level;
-        player._money = data.player.money;
-        player._networth = data.player.networth;
-        player._tokenBalance = data.wallet.tokenBalance;
-        player.updateMoney();
-        player._tonBalance = data.wallet.tonBalance;
-        player._usdtBalance = data.wallet.usdtBalance;
-
-        player._spinItems = data.player.spin.items;
-        player._isSpinActivated = data.player.spin.activated;
-        player._spinTimeStamp = data.player.spin.generateTimeStamp;
+        player._spinItems = data.player.spin.items
+        player._isSpinActivated = data.player.spin.activated
+        player._spinTimeStamp = data.player.spin.generateTimeStamp
         for (let i = 0; i < player._spinItems.length; i++) {
             const el = player._spinItems[i];
-            if (el.item == data.player.spin.drop.item && el.amount == data.player.spin.drop.amount) {
-                player._spinDropIndex = i;
-                break;
+            if (el.item == data.player.spin.drop.item && el.amount == data.player.spin.drop.amount){
+                player._spinDropIndex = i
+                break
             }
         }
-        spin.renderSpin();
-        player._orderArr = data.player.orders;
-        player._boostersArr = [];
+        spin.renderSpin()
+      	player._orderArr = data.player.orders
+        player._boostersArr = []
         data.availableBoosters.forEach(el => {
             const booster = {
                 type: el.boosterType,
                 time: el.time
-            };
-            if (el.boosterType == "GrowSpeed" || el.boosterType == "WorkSpeed") {
-                booster.amount = 100 / (100 - el.percentage);
-            } else if (el.boosterType == "OrderMoney") {
-                booster.amount = el.percentage / 100 + 1;
-            } else if (el.boosterType == "OrderItems") {
-                booster.amount = el.percentage / 100;
             }
-            player._boostersArr.push(booster);
+            if (el.boosterType == "GrowSpeed" || el.boosterType == "WorkSpeed"){
+                booster.amount = 100 / (100 - el.percentage)
+            } else if (el.boosterType == "OrderMoney"){
+                booster.amount = el.percentage / 100 + 1
+            } else if (el.boosterType == "OrderItems"){
+                booster.amount = el.percentage / 100
+            }
+            player._boostersArr.push(booster)
         });
 
-        player._activBoostersArr = [];
+        player._activBoostersArr = []
         for (const key in data.activeBoosters) {
-            if (key == 'WorkSpeed') {
-                player._workBooster.boosterAmount = 100 / (100 - data.activeBoosters[key].percentage);
-                player._workBooster.timeStamp = (data.activeBoosters[key].activateTimeStamp + data.activeBoosters[key].time) * 1000;
-                player._workBooster.timeToEnd = player._workBooster.timeStamp - Date.now();
-                player._activBoostersArr.push(player._workBooster);
-            } else if (key == 'GrowSpeed') {
-                player._growBooster.boosterAmount = 100 / (100 - data.activeBoosters[key].percentage);
-                player._growBooster.timeStamp = (data.activeBoosters[key].activateTimeStamp + data.activeBoosters[key].time) * 1000;
-                player._growBooster.timeToEnd = player._growBooster.timeStamp - Date.now();
-                player._activBoostersArr.push(player._growBooster);
-            } else if (key == 'OrderMoney') {
+            if (key == 'WorkSpeed'){
+                player._workBooster.boosterAmount = 100 / (100 - data.activeBoosters[key].percentage)
+                player._workBooster.timeStamp = (data.activeBoosters[key].activateTimeStamp + data.activeBoosters[key].time) * 1000
+                player._workBooster.timeToEnd = player._workBooster.timeStamp - Date.now()
+                player._activBoostersArr.push(player._workBooster)
+            } else if (key == 'GrowSpeed'){
+                player._growBooster.boosterAmount = 100 / (100 - data.activeBoosters[key].percentage)
+                player._growBooster.timeStamp = (data.activeBoosters[key].activateTimeStamp + data.activeBoosters[key].time) * 1000
+                player._growBooster.timeToEnd = player._growBooster.timeStamp - Date.now()
+                player._activBoostersArr.push(player._growBooster)
+            } else if (key == 'OrderMoney'){
                 const booster = {
                     type: 'OrderMoney',
                     boosterAmount: data.activeBoosters[key].percentage / 100 + 1,
                     timeStamp: (data.activeBoosters[key].activateTimeStamp + data.activeBoosters[key].time) * 1000,
                     timeToEnd: (data.activeBoosters[key].activateTimeStamp + data.activeBoosters[key].time) * 1000 - Date.now()
-                };
-                player._activBoostersArr.push(booster);
-            } else if (key == 'OrderItems') {
+                }
+                player._activBoostersArr.push(booster)
+            } else if (key == 'OrderItems'){
                 const booster = {
                     type: 'OrderItems',
                     boosterAmount: data.activeBoosters[key].percentage / 100,
                     timeStamp: (data.activeBoosters[key].activateTimeStamp + data.activeBoosters[key].time) * 1000,
                     timeToEnd: (data.activeBoosters[key].activateTimeStamp + data.activeBoosters[key].time) * 1000 - Date.now()
-                };
-                player._activBoostersArr.push(booster);
+                }
+                player._activBoostersArr.push(booster)
             }
         }
-    }
-
-    initGameSession(data) {
-        console.log(data);
-        this.regenPlayer(data);
-        data.world.tileArray.forEach(el => {
-            tiles[el.x][el.y].createBuilding(el.name);
-            if (RES.buildingNames.bakery.includes(el.name)) {
-                el.slots.forEach(slot => {
-                    tiles[el.x][el.y]._structure.addSlot(slot);
-                });
-                tiles[el.x][el.y]._structure._level = el.level;
-                tiles[el.x][el.y]._structure._slotsAmount += el.integerData;
-            } else if (RES.buildingNames.garden.includes(el.name)) {
-                if (el.slots[0].workName != 'none')
-                    tiles[el.x][el.y]._structure.addSlot(el.slots[0]);
-            } else if (RES.buildingNames.animalPen.includes(el.name)) {
-                for (let i = 0; i < el.integerData; i++) {
-                    tiles[el.x][el.y]._structure.addAnimal();
-                }
-                tiles[el.x][el.y]._structure.setLevel(el.level);
-                if (el.slots[0])
-                    tiles[el.x][el.y]._structure.setTime(el.slots[0].workEndTimeStamp);
-            } else if (RES.buildingNames.bush.includes(el.name)) {
-                tiles[el.x][el.y]._structure.setProperties(el.slots[0].workEndTimeStamp, el.integerData);
-            }
-        });
+  	}
+  	initGameSession(data){
+    	console.log(data)
+        this.regenPlayer(data)
+      	data.world.tileArray.forEach(el => {
+          	tiles[el.x][el.y].createBuilding(el.name)
+          	if (RES.buildingNames.bakery.includes(el.name)){
+              	el.slots.forEach(slot => {
+                  	tiles[el.x][el.y]._structure.addSlot(slot)
+              	});
+                tiles[el.x][el.y]._structure._level = el.level
+              	tiles[el.x][el.y]._structure._slotsAmount += el.integerData
+          	} else if (RES.buildingNames.garden.includes(el.name)){
+				if (el.slots[0].workName != 'none')
+					tiles[el.x][el.y]._structure.addSlot(el.slots[0])
+			} else if (RES.buildingNames.animalPen.includes(el.name)){
+				for (let i = 0; i < el.integerData; i++) {
+					tiles[el.x][el.y]._structure.addAnimal()
+				}
+                tiles[el.x][el.y]._structure.setLevel(el.level)
+				if (el.slots[0])
+					tiles[el.x][el.y]._structure.setTime(el.slots[0].workEndTimeStamp)
+			} else if (RES.buildingNames.bush.includes(el.name)){
+				tiles[el.x][el.y]._structure.setProperties(el.slots[0].workEndTimeStamp, el.integerData)
+			}
+		});
         RES.buildingNames.bakery.concat(RES.buildingNames.animalPen).forEach(name => {
-            RES.buildings[name].price *= Math.pow(CVAR.nextBuildingPriceCoef, GVAR.countBuilding(name));
+            RES.buildings[name].price *= Math.pow(CVAR.nextBuildingPriceCoef, GVAR.countBuilding(name))
         });
-        RES.buildings['garden'].floatPrice = RES.buildings['garden'].price * Math.pow(CVAR.nextGardenPriceCoef, GVAR.countBuilding('garden'));
-        RES.buildings['garden'].price = Math.floor(RES.buildings['garden'].floatPrice);
+        RES.buildings['garden'].floatPrice = RES.buildings['garden'].price * Math.pow(CVAR.nextGardenPriceCoef, GVAR.countBuilding('garden'))
+        RES.buildings['garden'].price = Math.floor(RES.buildings['garden'].floatPrice)
 
-        player._availableDeals = data.availableDeals;
+        player._availableDeals = data.availableDeals
 
         let transactions = [
             ...data.deposits.map((dep, index) => ({
@@ -283,8 +260,8 @@ class SocketClient {
 
         player._transactions = transactions;
 
-        this.gameSessionPromiseResolve();
-    }
+		this.gameSessionPromiseResolve()
+  	}
 }
 
 const socketClient = new SocketClient();
@@ -293,43 +270,49 @@ export default socketClient;
 
 class Init {
     constructor() {
-        if (Object.keys(window.Telegram.WebApp.initDataUnsafe).length != 0) {
+        if (Object.keys(window.Telegram.WebApp.initDataUnsafe).length != 0){
             window.Telegram.WebApp.expand();
             window.Telegram.WebApp.disableVerticalSwipes();
-            GVAR.tg_id = window.Telegram.WebApp.initDataUnsafe.user.id;
-            GVAR.tg_name = window.Telegram.WebApp.initDataUnsafe.user.username;
-            console.log(window.Telegram.WebApp.initDataUnsafe.user.language_code);
+            GVAR.tg_id = window.Telegram.WebApp.initDataUnsafe.user.id
+            GVAR.tg_name = window.Telegram.WebApp.initDataUnsafe.user.username
+            console.log(window.Telegram.WebApp.initDataUnsafe.user.language_code)
             if (window.Telegram.WebApp.initDataUnsafe.user.language_code === 'ru') {
-                GVAR.language = 'ru';
+                GVAR.language = 'ru'
             } else {
-                GVAR.language = 'en';
+                GVAR.language = 'en'
             }
         }
     }
-
-    async initMap() {
-        loader.updateLoading(loader.progress, 'Initializing map');
+    async initMap(){
+        loader.updateLoading(loader.progress, 'Initializing map')
         const Tile = (await import("./gameClasses/tile/tile.js")).default;
 
         for (let i = 0; i < CVAR.tileRows; i++) {
             tiles[i] = new Array(CVAR.tileCols);
         }
-        for (let i = 0; i < CVAR.tileRows; i++) {
-            for (let j = 0; j < CVAR.tileCols; j++) {
+        for (let i = 0; i < CVAR.tileRows; i++)
+        {
+            for (let j = 0; j < CVAR.tileCols; j++)
+            {
                 let tileCoords = Calc.indexToCanvas(i, j, CVAR.tileSide, CVAR.outlineWidth);
                 tiles[i][j] = new Tile(tileCoords.x, tileCoords.y, CVAR.tileSide, CVAR.tileSide, RES.map.grass[Math.random() < 0.25 ? Math.floor(Math.random() * 12) + 9 : 4]);
             }
         }
         RES.buildingNames.serviceBuildings.forEach(name => {
-            tiles[RES.buildings[name].i][RES.buildings[name].j].createBuilding(name);
+            tiles[RES.buildings[name].i][RES.buildings[name].j].createBuilding(name)
         });
+        if (Object.keys(window.Telegram.WebApp.initDataUnsafe).length != 0) {
+            console.log(window.Telegram.WebApp)
+            socketClient.send(`connect/${window.Telegram.WebApp.initData}`)
+        } else {
+            socketClient.send(`connect/2357501`)
+        }
 
-        // connect уже отправлен в onopen — здесь только ждём сессию
-        loader.updateLoading(loader.progress + 25, 'Init game session');
+        loader.updateLoading(loader.progress + 25, 'Init game session')
         await socketClient.gameSessionPromise;
     }
-
     async splitImageToBlocks(imageSrc, flag) {
+
         function loadImage(src) {
             return new Promise((resolve, reject) => {
                 const img = new Image();
@@ -349,8 +332,8 @@ class Init {
         const img = await loadImage(imageSrc);
         const blocks = [];
         let blockSize = 16;
-        if (flag) {
-            blockSize = img.height;
+        if (flag){
+            blockSize = img.height
         }
 
         const canvas = createCanvas(blockSize, blockSize);
@@ -372,14 +355,13 @@ class Init {
 
         return blocks;
     }
-
     async loadRes() {
         const loadImage = (src) => {
             return new Promise((resolve, reject) => {
                 const img = new Image();
                 img.src = src;
                 img.onload = () => {
-                    loader.updateLoading(loader.progress + 0.15, 'Loading images');
+                    loader.updateLoading(loader.progress + 0.15, 'Loading images')
                     resolve(img);
                 };
                 img.onerror = (error) => {
@@ -396,20 +378,21 @@ class Init {
         };
 
         const loadMapImages = async () => {
-            RES.map.grass = await this.splitImageToBlocks(`client/assets/map/Grass.png`);
-            RES.map.water = await this.splitImageToBlocks(`client/assets/map/Water.png`);
-            loader.updateLoading(loader.progress + 0.2, 'Loading images');
-        };
+            RES.map.grass = await this.splitImageToBlocks(`client/assets/map/Grass.png`)
+            RES.map.water = await this.splitImageToBlocks(`client/assets/map/Water.png`)
+            loader.updateLoading(loader.progress + 0.2, 'Loading images')
+        }
+
 
         const loadAssets = async (type, name) => {
-            let data = {};
-            if (type != 'items') {
+            let data = {}
+            if (type != 'items'){
                 data = await loadJson(`client/assets/${type}/${name}/${name}.json`);
 
                 try {
                     const data_front = await loadJson(`client/assets/${type}/${name}/${name}_front.json`);
                     Object.assign(data, data_front);
-                } catch (error) { }
+                } catch (error) {}
                 if (type === "plants") {
                     data.image = {};
                     data.image.stages = {};
@@ -425,31 +408,31 @@ class Init {
                         data.image[i] = await loadImage(`client/assets/${type}/${name}/${name}${i}.png`);
                     });
                     await Promise.all(stagesPromises);
-                } else if (type === "buildings" && RES.buildingNames.animalPen.includes(name)) {
+                } else if (type === "buildings" && RES.buildingNames.animalPen.includes(name)){
                     data.image = await loadImage(`client/assets/${type}/${name}/${name}.png`);
                     data.frontImage = await loadImage(`client/assets/${type}/${name}/${name}_front.png`);
-                } else if (type === "buildings" && RES.buildingNames.bush.includes(name)) {
+                } else if (type === "buildings" && RES.buildingNames.bush.includes(name)){
                     data.image = {};
 
                     const stagesPromises = Array.from({ length: 3 }).map(async (_, i) => {
                         data.image[i] = await loadImage(`client/assets/${type}/${name}/${name}${i}.png`);
                     });
                     await Promise.all(stagesPromises);
-                } else if (type === "animals") {
-                    data.standImages = await this.splitImageToBlocks(`client/assets/${type}/${name}/${name}_stand.png`, true);
-                    data.goImages = await this.splitImageToBlocks(`client/assets/${type}/${name}/${name}_go.png`, true);
+                }  else if (type === "animals"){
+                    data.standImages = await this.splitImageToBlocks(`client/assets/${type}/${name}/${name}_stand.png`, true)
+                    data.goImages = await this.splitImageToBlocks(`client/assets/${type}/${name}/${name}_go.png`, true)
                     data.finalImage = await loadImage(`client/assets/${type}/${name}/${name}_final.png`);
                 } else {
                     data.image = await loadImage(`client/assets/${type}/${name}/${name}.png`);
                 }
-                if (!data.size) {
+                if (!data.size){
                     data.size = {
                         w: data.sizex,
                         h: data.sizey
-                    };
+                    }
                 }
             } else {
-                data = {};
+                data = {}
                 data.image = await loadImage(`client/assets/items/${name}.png`);
             }
             RES[type][name] = data;
@@ -465,7 +448,7 @@ class Init {
                 });
             }
             console.log(RES)
-  
+
             await Promise.all(allAssetPromises);
             await this.initMap();
             return RES;
@@ -475,9 +458,9 @@ class Init {
         }
     }
 }
-  
+
 const init = new Init();
-  
+
 init.loadRes().then(async () => {
     const { main } = await import('./index.js');
     main();
