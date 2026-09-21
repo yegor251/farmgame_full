@@ -47,6 +47,14 @@ class WithdrawProcessor:
         while True:
             current_seqno = await self._toncenter_client.get_seqno(self._wallet.address)
             if current_seqno > seqno:
+                print(
+                    f"[WithdrawProcessor] Вывод завершён: "
+                    f"tx_id={withdraw.transaction_id}, "
+                    f"to={withdraw.wallet}, "
+                    f"amount={withdraw.amount}"
+                )
+                return
+            if current_seqno > seqno:
                 logger.info("Withdraw %s confirmed", withdraw.transaction_id)
                 return
             boc = self._wallet.build_jetton_transfer_boc(
@@ -70,6 +78,12 @@ class WithdrawProcessor:
                 await asyncio.sleep(self._idle_sleep_seconds)
                 continue
             for withdraw in pending:
+                print(
+                    f"[WithdrawProcessor] Начало вывода: "
+                    f"tx_id={withdraw.transaction_id}, "
+                    f"to={withdraw.wallet}, "
+                    f"amount={withdraw.amount}"
+                )
                 await self._withdraw_repository.mark_withdraw_sent(withdraw.transaction_id)
                 try:
                     await self._send_until_confirmed(withdraw, jetton_wallet_address)
