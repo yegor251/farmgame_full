@@ -21,7 +21,11 @@ init:
 	cp .env.example .env
 
 run:
-	$(VENV)/bin/uvicorn app.main:app --host 0.0.0.0 --port 8000
+	$(VENV)/bin/uvicorn app.main:app \
+  --host 0.0.0.0 \
+  --port 8000 \
+  --ssl-keyfile /etc/letsencrypt/live/tonfarmg.site/privkey.pem \
+  --ssl-certfile /etc/letsencrypt/live/tonfarmg.site/fullchain.pem
 
 run-deposit:
 	$(VENV)/bin/python -m app.crypto.run_deposit_watcher

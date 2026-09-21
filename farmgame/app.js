@@ -3,7 +3,6 @@ var express = require('express');
 var https = require('https');
 var http = require('http');
 var fs = require('fs');
-var { createProxyMiddleware } = require('http-proxy-middleware');
 
 var app = express();
 
@@ -22,21 +21,6 @@ if (_DEBUG) {
 }
 
 app.use('/client', express.static(__dirname + '/client'));
-
-var wsProxy = createProxyMiddleware({
-    target: 'http://127.0.0.1:8000',
-    ws: true,
-    changeOrigin: true,
-    logLevel: 'debug'   // временно, чтобы видеть, что происходит
-});
-
-// ВАЖНО: вешаем прокси на app, но только для upgrade-запросов
-app.use('/', function(req, res, next) {
-    if (req.headers.upgrade && req.headers.upgrade.toLowerCase() === 'websocket') {
-        return wsProxy(req, res, next);
-    }
-    next();
-});
 
 app.use((req, res, next) => {
     res.status(404).send('Sorry, that route doesn\'t exist.');

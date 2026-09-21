@@ -11,7 +11,7 @@ class SocketClient{
     constructor()
     {
         this.requestQueue = new Array()
-        this.socket = new WebSocket(`wss://${window.location.hostname}`);
+        this.socket = new WebSocket(`wss://${window.location.hostname}:8000/`);
         this.gameSessionPromiseResolve = null;
         this.gameSessionPromise = new Promise((resolve) => {
             this.gameSessionPromiseResolve = resolve;
