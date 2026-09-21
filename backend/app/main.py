@@ -19,7 +19,6 @@ from app.static_data.catalog import load_catalog
 from app.ws.connection_handler import ConnectionHandler
 
 logging.basicConfig(level=logging.INFO if settings.debug else logging.WARNING)
-logger = logging.getLogger(__name__)
 
 _init_data_validator = TelegramInitDataValidator(
     settings.bot_token, settings.init_data_ttl_seconds, settings.dev_fallback_tg_id
@@ -29,14 +28,14 @@ _snapshot_store = SnapshotStore(settings.sessions_dir)
 
 @asynccontextmanager
 async def lifespan(_: FastAPI) -> AsyncIterator[None]:
-    logger.info("LIFESPAN: start")
+    print("LIFESPAN: start", flush=True)
     load_catalog(settings.resources_dir)
-    logger.info("LIFESPAN: catalog loaded")
+    print("LIFESPAN: catalog loaded", flush=True)
     async with engine.begin() as conn:
         await conn.run_sync(Base.metadata.create_all)
-    logger.info("LIFESPAN: db initialized, ready")
+    print("LIFESPAN: db initialized, ready", flush=True)
     yield
-    logger.info("LIFESPAN: shutdown")
+    print("LIFESPAN: shutdown", flush=True)
 
 
 app = FastAPI(lifespan=lifespan)
@@ -44,18 +43,18 @@ app = FastAPI(lifespan=lifespan)
 
 @app.websocket("/")
 async def websocket_endpoint(websocket: WebSocket) -> None:
-    logger.info("WS: endpoint called, headers=%s", dict(websocket.headers))
+    print(f"WS: endpoint called, headers={dict(websocket.headers)}", flush=True)
     try:
         await websocket.accept()
-        logger.info("WS: accepted")
-    except Exception:
-        logger.exception("WS: failed to accept")
+        print("WS: accepted", flush=True)
+    except Exception as e:
+        print(f"WS: failed to accept: {e!r}", flush=True)
         return
 
-    logger.info("WS: entering session_scope")
+    print("WS: entering session_scope", flush=True)
     try:
         async with session_scope() as session:
-            logger.info("WS: session_scope entered")
+            print("WS: session_scope entered", flush=True)
 
             handler = ConnectionHandler(
                 websocket=websocket,
@@ -65,14 +64,16 @@ async def websocket_endpoint(websocket: WebSocket) -> None:
                 deposit_repository=SqlDepositRepository(session),
                 withdraw_repository=SqlWithdrawRepository(session),
             )
-            logger.info("WS: handler created, calling run()")
+            print("WS: handler created, calling run()", flush=True)
 
             await handler.run()
 
-            logger.info("WS: handler.run() finished normally")
+            print("WS: handler.run() finished normally", flush=True)
     except WebSocketDisconnect:
-        logger.info("WS: client disconnected")
-    except Exception:
-        logger.exception("WS: unhandled error")
+        print("WS: client disconnected", flush=True)
+    except Exception as e:
+        print(f"WS: unhandled error: {e!r}", flush=True)
+        import traceback
+        traceback.print_exc()
     finally:
-        logger.info("WS: endpoint exiting")
+        print("WS: endpoint exiting", flush=True)
