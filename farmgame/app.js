@@ -23,6 +23,21 @@ if (_DEBUG) {
 
 app.use('/client', express.static(__dirname + '/client'));
 
+var wsProxy = createProxyMiddleware({
+    target: 'http://127.0.0.1:8000',
+    ws: true,
+    changeOrigin: true,
+    logLevel: 'debug'   // временно, чтобы видеть, что происходит
+});
+
+// ВАЖНО: вешаем прокси на app, но только для upgrade-запросов
+app.use('/', function(req, res, next) {
+    if (req.headers.upgrade && req.headers.upgrade.toLowerCase() === 'websocket') {
+        return wsProxy(req, res, next);
+    }
+    next();
+});
+
 app.use((req, res, next) => {
     res.status(404).send('Sorry, that route doesn\'t exist.');
 });
@@ -32,21 +47,12 @@ app.use((err, req, res, next) => {
     res.status(500).send('Something broke!');
 });
 
-var wsProxy = createProxyMiddleware({
-    target: 'http://127.0.0.1:8000',
-    ws: true,
-    changeOrigin: true
-});
-
 var options = {
     key: fs.readFileSync('/etc/letsencrypt/live/tonfarmg.site/privkey.pem'),
     cert: fs.readFileSync('/etc/letsencrypt/live/tonfarmg.site/fullchain.pem')
 };
 
 var httpsServer = https.createServer(options, app);
-
-// Проксируем только WebSocket-апгрейды, обычные HTTP идут в Express
-httpsServer.on('upgrade', wsProxy.upgrade);
 
 httpsServer.listen(443, function() {
     console.log('HTTPS server running on port 443');
