@@ -1,7 +1,6 @@
 import GVAR from "../../globalVars/global.js";
 import player from "../player/player.js";
 import { pm } from "../ton-connect/tonMenu.js";
-import { withdraw } from "../ton-connect/tonMenu.js";
 
 class MainManu {
     constructor() {
@@ -21,9 +20,6 @@ class MainManu {
                 document.getElementById('main-menu-wrap').style.display = 'none';
             }
         });
-        document.getElementById("token-withdraw-button").onclick = () => {
-            withdraw.show();
-        }
         this.link = `t.me/tonfarmgame_bot?start=${GVAR.tg_id}`
         document.getElementById("referral-link").innerText = `t.me/tonfarmgame_bot?start=${GVAR.tg_id}`
         document.getElementById('referral-text').innerText = GVAR.localization[49][GVAR.language]

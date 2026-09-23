@@ -22,7 +22,6 @@ export async function main() {
         { default: RES },
         { educationMenu },
         { pm },
-        { withdraw },
         { manualMenu },
     ] = await Promise.all([
         import('./globalVars/global.js'),
@@ -46,7 +45,6 @@ export async function main() {
         import('./resources.js'),
         import('./gameClasses/education/educationMenu.js'),
         import('./gameClasses/ton-connect/tonMenu.js'),
-        import('./gameClasses/ton-connect/tonMenu.js'),
         import('./gameClasses/manual/manual.js'),
     ]);
     educationMenu.start()
@@ -61,7 +59,7 @@ export async function main() {
     //     shop.drawPlantShop()
     //     shop.show()
     //     document.getElementById("shop-wrap").style.display = 'none'
-    //     const menues = [boosterMenu, orderManager, spin, transactionsMenu, dealmenu, withdraw, pm, mainMenu]
+    //     const menues = [boosterMenu, orderManager, spin, transactionsMenu, dealmenu, pm, mainMenu]
     //     menues.forEach(menu => {
     //         menu.show()
     //         menu.close()

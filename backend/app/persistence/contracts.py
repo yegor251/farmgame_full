@@ -1,7 +1,7 @@
 from dataclasses import dataclass
 from typing import Protocol
 
-from app.domain.transfer_info import Deposit, Withdraw
+from app.domain.transfer_info import Deposit
 
 
 @dataclass
@@ -25,13 +25,3 @@ class DepositRepository(Protocol):
     async def close_deposit_by_transaction_id(self, transaction_id: int) -> bool: ...
 
     async def insert_deposit(self, deposit: Deposit) -> bool: ...
-
-
-class WithdrawRepository(Protocol):
-    async def check_withdraw_by_info(self, transaction_id: int) -> Withdraw | None: ...
-
-    async def register_withdraw(self, withdraw: Withdraw) -> bool: ...
-
-    async def list_pending_withdraws(self, limit: int) -> list[Withdraw]: ...
-
-    async def mark_withdraw_sent(self, transaction_id: int) -> bool: ...

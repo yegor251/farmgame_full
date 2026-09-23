@@ -7,7 +7,7 @@ from app.auth.telegram_init_data import TelegramInitDataValidator
 from app.config import settings
 from app.domain.game import Game
 from app.errors import GameErrorCode
-from app.persistence.contracts import DepositRepository, UserRepository, WithdrawRepository
+from app.persistence.contracts import DepositRepository, UserRepository
 from app.persistence.snapshot_store import SnapshotStore
 from app.services.building_service import building_exists
 from app.ws import protocol
@@ -26,14 +26,12 @@ class ConnectionHandler:
         snapshot_store: SnapshotStore,
         user_repository: UserRepository,
         deposit_repository: DepositRepository,
-        withdraw_repository: WithdrawRepository,
     ) -> None:
         self._websocket = websocket
         self._init_data_validator = init_data_validator
         self._snapshot_store = snapshot_store
         self._user_repository = user_repository
         self._deposit_repository = deposit_repository
-        self._withdraw_repository = withdraw_repository
         self._game: Game | None = None
 
     async def run(self) -> None:
@@ -95,7 +93,7 @@ class ConnectionHandler:
             game = Game(user.user_id, user.ref_id)
             game.first_init()
             self._snapshot_store.save_game(game)
-            await game.on_connect(self._deposit_repository, self._withdraw_repository)
+            await game.on_connect(self._deposit_repository)
             await self._user_repository.activate_user_by_id(user.user_id)
 
             if user.ref_id > 0 and user.ref_id != user.user_id:
@@ -105,7 +103,7 @@ class ConnectionHandler:
             if game.client_info.banned:
                 await self._websocket.close()
                 return None
-            await game.on_connect(self._deposit_repository, self._withdraw_repository)
+            await game.on_connect(self._deposit_repository)
 
         return game
 
@@ -149,8 +147,6 @@ class ConnectionHandler:
                 game.last_operation = GameErrorCode.SOCKET_WRONG_FORMAT
         elif isinstance(command, protocol.ClaimDeposit):
             game.on_claim_deposit(command.index)
-        elif isinstance(command, protocol.RegisterWithdraw):
-            await game.on_register_withdraw(command.amount, command.wallet, self._withdraw_repository)
         elif isinstance(command, protocol.PurchaseSlot):
             game.on_purchase_slot(command.x, command.y)
         elif isinstance(command, protocol.PurchaseDeal):

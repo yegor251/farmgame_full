@@ -140,24 +140,13 @@ class DepositSnapshot(BaseModel):
     commentary: str
 
 
-class WithdrawSnapshot(BaseModel):
-    transaction_id: int
-    status: int
-    tg_id: int
-    wallet: str
-    amount: int
-    time_stamp: int
-
-
 class TransferInfoSnapshot(BaseModel):
     deposits: list[DepositSnapshot]
-    withdraws: list[WithdrawSnapshot]
 
 
 class ClientInfoSnapshot(BaseModel):
     tg_id: int
     ref_id: int
-    wallet: str
     banned: bool
     strikes: int
     referrals: list[int]

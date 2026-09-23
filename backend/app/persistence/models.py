@@ -1,4 +1,4 @@
-from sqlalchemy import BigInteger, Boolean, SmallInteger, String
+from sqlalchemy import BigInteger, Boolean, String
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column
 
 
@@ -24,14 +24,3 @@ class DepositRow(Base):
     time_stamp: Mapped[int] = mapped_column(BigInteger)
     jetton_signature: Mapped[str] = mapped_column(String)
     commentary: Mapped[str] = mapped_column(String)
-
-
-class WithdrawRow(Base):
-    __tablename__ = "withdraws"
-
-    transaction_id: Mapped[int] = mapped_column(BigInteger, primary_key=True)
-    status: Mapped[int] = mapped_column(SmallInteger)
-    tg_id: Mapped[int] = mapped_column(BigInteger)
-    wallet: Mapped[str] = mapped_column(String)
-    amount: Mapped[int] = mapped_column(BigInteger)
-    time_stamp: Mapped[int] = mapped_column(BigInteger)

@@ -65,16 +65,16 @@ class TransactionsMenu {
         
             const typeCell = document.createElement('div');
             const arrow = document.createElement('div');
-            arrow.className = item.type === 'dep' ? 'deposit-arrow' : 'withdraw-arrow';
+            arrow.className = 'deposit-arrow';
 
             typeCell.className = 'table-col2';
             typeCell.appendChild(arrow)
             row.appendChild(typeCell);
-        
+
             const walletCell = document.createElement('div');
             const walletCelltext = document.createElement('h3');
             walletCelltext.className = 'table-text'
-            walletCelltext.innerText = item.type === 'dep' ? '-' : `${item.wallet.slice(0, 3)}..${item.wallet.slice(-3)}`;
+            walletCelltext.innerText = '-';
 
             walletCell.className = 'table-col3';
             walletCell.appendChild(walletCelltext)
@@ -92,18 +92,13 @@ class TransactionsMenu {
             const amountCell = document.createElement('div');
             const amountCelltext = document.createElement('h3');
             amountCelltext.className = 'table-text'
-            if (item.type === 'dep'){
-                if (item.jetton_signature === "TON")
-                    amountCelltext.innerText = '+' + (item.amount / 1000000000).toString().match(/^-?\d+(?:\.\d{0,3})?/)[0]
-                else if (item.jetton_signature === "USDT")
-                    amountCelltext.innerText = '+' + (item.amount / 1000000).toString().match(/^-?\d+(?:\.\d{0,3})?/)[0]
-                else
-                    amountCelltext.innerText = '+' + (item.amount / 100).toString().match(/^-?\d+(?:\.\d{0,2})?/)[0]
-                amountCelltext.classList.add('unlocked')
-            } else {
-                amountCelltext.innerText = '-' + (item.amount / 100).toString().match(/^-?\d+(?:\.\d{0,2})?/)[0]
-                amountCelltext.classList.add('locked')
-            }
+            if (item.jetton_signature === "TON")
+                amountCelltext.innerText = '+' + (item.amount / 1000000000).toString().match(/^-?\d+(?:\.\d{0,3})?/)[0]
+            else if (item.jetton_signature === "USDT")
+                amountCelltext.innerText = '+' + (item.amount / 1000000).toString().match(/^-?\d+(?:\.\d{0,3})?/)[0]
+            else
+                amountCelltext.innerText = '+' + (item.amount / 100).toString().match(/^-?\d+(?:\.\d{0,2})?/)[0]
+            amountCelltext.classList.add('unlocked')
             amountCell.className = 'table-col5';
             amountCell.appendChild(amountCelltext)
             row.appendChild(amountCell);
@@ -111,7 +106,7 @@ class TransactionsMenu {
             const claimCell = document.createElement('div');
             claimCell.className = 'table-col6';
             const claimButton = document.createElement('div');
-            if (item.type === 'dep' && item.active){
+            if (item.active){
                 claimButton.className = 'claim-deposit-button'
                 const claimText = document.createElement('h3');
                 claimText.className = 'claim-deposit-text'

@@ -10,7 +10,7 @@ from app.api_models.item_container import ItemsContainerResponse
 from app.api_models.order import OrderResponse
 from app.api_models.player import PlayerResponse
 from app.api_models.spin import SlotResponse, SpinResponse
-from app.api_models.transaction import DepositResponse, WithdrawResponse
+from app.api_models.transaction import DepositResponse
 from app.api_models.wallet import WalletResponse
 from app.api_models.world import BuildingResponse, BuildingSlotResponse, WorldResponse
 
@@ -88,7 +88,7 @@ def test_world_response_uses_tile_array_alias() -> None:
     assert payload == {"tileArray": []}
 
 
-def test_deposit_and_withdraw_responses_stay_snake_case_even_with_by_alias() -> None:
+def test_deposit_response_stays_snake_case_even_with_by_alias() -> None:
     deposit = DepositResponse(
         transaction_id=1,
         active=True,
@@ -97,9 +97,6 @@ def test_deposit_and_withdraw_responses_stay_snake_case_even_with_by_alias() -> 
         time_stamp=1000,
         jetton_signature="sig",
         commentary="note",
-    )
-    withdraw = WithdrawResponse(
-        transaction_id=2, status=0, tg_id=42, wallet="EQwallet", amount=500, time_stamp=2000
     )
 
     assert _dump(deposit) == {
@@ -110,14 +107,6 @@ def test_deposit_and_withdraw_responses_stay_snake_case_even_with_by_alias() -> 
         "time_stamp": 1000,
         "jetton_signature": "sig",
         "commentary": "note",
-    }
-    assert _dump(withdraw) == {
-        "transaction_id": 2,
-        "status": 0,
-        "tg_id": 42,
-        "wallet": "EQwallet",
-        "amount": 500,
-        "time_stamp": 2000,
     }
 
 

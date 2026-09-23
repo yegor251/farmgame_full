@@ -3,13 +3,8 @@ from collections.abc import AsyncIterator
 import pytest_asyncio
 from sqlalchemy.ext.asyncio import AsyncSession, async_sessionmaker, create_async_engine
 
-from app.domain.transfer_info import Withdraw
 from app.persistence.models import Base, DepositRow, UserRow
-from app.persistence.repository import (
-    SqlDepositRepository,
-    SqlUserRepository,
-    SqlWithdrawRepository,
-)
+from app.persistence.repository import SqlDepositRepository, SqlUserRepository
 
 
 @pytest_asyncio.fixture
@@ -124,24 +119,3 @@ async def test_close_deposit_by_transaction_id_deactivates_deposit(session: Asyn
 
     deposits = await repository.get_deposits_by_user_id(42)
     assert deposits == []
-
-
-async def test_check_withdraw_by_info_returns_none_when_missing(session: AsyncSession) -> None:
-    repository = SqlWithdrawRepository(session)
-
-    assert await repository.check_withdraw_by_info(1) is None
-
-
-async def test_register_withdraw_persists_and_can_be_read_back(session: AsyncSession) -> None:
-    repository = SqlWithdrawRepository(session)
-    withdraw = Withdraw(
-        transaction_id=1, status=0, tg_id=42, wallet="EQwallet", amount=500, time_stamp=1000
-    )
-
-    assert await repository.register_withdraw(withdraw) is True
-
-    stored = await repository.check_withdraw_by_info(1)
-    assert stored is not None
-    assert stored.tg_id == 42
-    assert stored.wallet == "EQwallet"
-    assert stored.amount == 500

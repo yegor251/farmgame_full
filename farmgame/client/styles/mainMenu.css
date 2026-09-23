@@ -65,7 +65,7 @@
     flex-direction: row;
     padding-bottom: 2.5vw;
 }
-.money-balance-icon, .token-balance-icon, .ton-balance-icon,  #token-withdraw-button,
+.money-balance-icon, .token-balance-icon, .ton-balance-icon,
 .usdt-balance-icon, .donate-plus-button, #networth-question-button {
     width: 11%;
     aspect-ratio: 1/1;
@@ -73,10 +73,6 @@
     background-position: center;
     background-repeat: no-repeat;
     image-rendering: pixelated;
-}
-#token-withdraw-button {
-    margin-left: 3%;
-    background-image: url('../assets/design/withdraw_butt_1.png');
 }
 .money-balance-icon {
     background-image: url('../assets/design/money_img.png');

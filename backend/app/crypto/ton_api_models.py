@@ -49,9 +49,3 @@ class AccountEventsResponse(BaseModel):
     model_config = ConfigDict(extra="ignore")
 
     events: list[AccountEvent] = Field(default_factory=list)
-
-
-class JettonBalanceResponse(BaseModel):
-    model_config = ConfigDict(extra="ignore")
-
-    wallet_address: TonApiAddress

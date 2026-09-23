@@ -13,16 +13,5 @@ class Deposit:
 
 
 @dataclass
-class Withdraw:
-    transaction_id: int
-    status: int
-    tg_id: int
-    wallet: str
-    amount: int
-    time_stamp: int
-
-
-@dataclass
 class TransferInfo:
     deposits: list[Deposit] = field(default_factory=list)
-    withdraws: list[Withdraw] = field(default_factory=list)

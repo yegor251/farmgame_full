@@ -88,22 +88,6 @@ document.getElementById('networth-question-button').addEventListener('touchend',
     document.getElementById('networth-question-button').style.backgroundImage = "url('client/assets/design/question_button_1.png')";
 });
 
-document.getElementById('token-withdraw-button').addEventListener('touchstart', () => {
-    document.getElementById('token-withdraw-button').style.backgroundImage = `url('client/assets/design/withdraw_butt_2.png')`
-});
-
-document.getElementById('token-withdraw-button').addEventListener('touchend', () => {
-    document.getElementById('token-withdraw-button').style.backgroundImage = "url('client/assets/design/withdraw_butt_1.png')";
-});
-
-document.getElementById('confirm-withdraw').addEventListener('touchstart', () => {
-    document.getElementById('confirm-withdraw').style.backgroundImage = `url('client/assets/design/grey_button_2.png')`
-});
-
-document.getElementById('confirm-withdraw').addEventListener('touchend', () => {
-    document.getElementById('confirm-withdraw').style.backgroundImage = "url('client/assets/design/grey_button_1.png')";
-});
-
 document.getElementById('proceed-to-buy').addEventListener('touchstart', () => {
     document.getElementById('proceed-to-buy').style.backgroundImage = `url('client/assets/design/grey_button_2.png')`
 });
@@ -207,48 +191,6 @@ document.getElementById('ton-amount').addEventListener('input', function (e) {
 });
 
 document.getElementById('ton-amount').addEventListener('paste', function (e) {
-    e.preventDefault();
-});
-
-document.getElementById('withdraw-amount').addEventListener('keydown', function (e) {
-    const allowedKeys = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '.', 'Backspace'];
-    if (!allowedKeys.includes(e.key)) {
-        e.preventDefault();
-    }
-
-    const value = e.target.value;
-
-    if (e.key === '.' && (value.includes('.') || value.length === 0)) {
-        e.preventDefault();
-        return;
-    }
-    if (e.key === 'Backspace' && value.includes('.')) {
-        const parts = value.split('.');
-        const dotIndex = value.indexOf('.') + 1;
-        if (e.target.selectionStart === dotIndex) {
-            e.target.value = parts[0];
-            e.preventDefault();
-        }
-    }
-});
-
-document.getElementById('withdraw-amount').addEventListener('input', function (e) {
-    let value = e.target.value;
-
-    const parts = value.split('.');
-    if (parts[0].length > 4) {
-        e.target.value = value.slice(0, value.length - 1);
-        return;
-    }
-
-    if (parts.length > 1 && parts[1].length > 2) {
-        e.target.value = value.slice(0, value.length - 1);
-    } else {
-        e.target.value = value;
-    }  
-});
-
-document.getElementById('withdraw-amount').addEventListener('paste', function (e) {
     e.preventDefault();
 });
 

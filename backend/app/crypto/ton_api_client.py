@@ -1,6 +1,6 @@
 import httpx
 
-from app.crypto.ton_api_models import AccountEvent, AccountEventsResponse, JettonBalanceResponse
+from app.crypto.ton_api_models import AccountEvent, AccountEventsResponse
 
 
 class TonApiClient:
@@ -22,10 +22,3 @@ class TonApiClient:
         )
         response.raise_for_status()
         return AccountEventsResponse.model_validate(response.json()).events
-
-    async def get_jetton_wallet_address(self, account_id: str, jetton_id: str) -> str | None:
-        response = await self._client.get(f"/v2/accounts/{account_id}/jettons/{jetton_id}")
-        if response.status_code == httpx.codes.NOT_FOUND:
-            return None
-        response.raise_for_status()
-        return JettonBalanceResponse.model_validate(response.json()).wallet_address.address

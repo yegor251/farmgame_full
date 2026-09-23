@@ -108,15 +108,6 @@
     background-repeat: no-repeat;
     image-rendering: pixelated;
 }
-.withdraw-arrow {
-    width: 100%;
-    aspect-ratio: 1/1;
-    background-image: url('../assets/design/arrow_withdraw.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    image-rendering: pixelated;
-}
 .img-claimed {
     width: 35%;
     aspect-ratio: 1/1;

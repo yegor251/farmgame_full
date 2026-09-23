@@ -1,7 +1,7 @@
 from pathlib import Path
 
 from app.auth.telegram_init_data import TelegramAuthResult, TelegramInitDataValidator
-from app.domain.transfer_info import Deposit, Withdraw
+from app.domain.transfer_info import Deposit
 from app.persistence.contracts import UserRecord
 from app.persistence.snapshot_store import SnapshotStore
 from app.ws import protocol
@@ -48,20 +48,6 @@ class _FakeDepositRepository:
         return True
 
 
-class _FakeWithdrawRepository:
-    async def check_withdraw_by_info(self, transaction_id: int) -> Withdraw | None:
-        return None
-
-    async def register_withdraw(self, withdraw: Withdraw) -> bool:
-        return True
-
-    async def list_pending_withdraws(self, limit: int) -> list[Withdraw]:
-        return []
-
-    async def mark_withdraw_sent(self, transaction_id: int) -> bool:
-        return True
-
-
 def _handler(snapshot_dir: Path, user_repository: _FakeUserRepository) -> ConnectionHandler:
     return ConnectionHandler(
         websocket=_FakeWebSocket(),  # type: ignore[arg-type]
@@ -69,7 +55,6 @@ def _handler(snapshot_dir: Path, user_repository: _FakeUserRepository) -> Connec
         snapshot_store=SnapshotStore(snapshot_dir),
         user_repository=user_repository,  # type: ignore[arg-type]
         deposit_repository=_FakeDepositRepository(),  # type: ignore[arg-type]
-        withdraw_repository=_FakeWithdrawRepository(),  # type: ignore[arg-type]
     )
 
 

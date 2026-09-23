@@ -4,9 +4,9 @@ from sqlalchemy import select, update
 from sqlalchemy.exc import SQLAlchemyError
 from sqlalchemy.ext.asyncio import AsyncSession
 
-from app.domain.transfer_info import Deposit, Withdraw
+from app.domain.transfer_info import Deposit
 from app.persistence.contracts import UserRecord
-from app.persistence.models import DepositRow, UserRow, WithdrawRow
+from app.persistence.models import DepositRow, UserRow
 
 logger = logging.getLogger(__name__)
 
@@ -103,88 +103,5 @@ class SqlDepositRepository:
         except SQLAlchemyError:
             logger.exception("Occured while trying to INSERT deposit(%s)", deposit.transaction_id)
             await self._session.rollback()
-            return False
-        return True
-
-
-class SqlWithdrawRepository:
-    def __init__(self, session: AsyncSession) -> None:
-        self._session = session
-
-    async def check_withdraw_by_info(self, transaction_id: int) -> Withdraw | None:
-        try:
-            result = await self._session.execute(
-                select(WithdrawRow).where(WithdrawRow.transaction_id == transaction_id)
-            )
-            row = result.scalars().first()
-        except SQLAlchemyError:
-            logger.exception("Occured while trying to check withdraw transaction(%s)", transaction_id)
-            return None
-        if row is None:
-            return None
-        return Withdraw(
-            transaction_id=row.transaction_id,
-            status=row.status,
-            tg_id=row.tg_id,
-            wallet=row.wallet,
-            amount=row.amount,
-            time_stamp=row.time_stamp,
-        )
-
-    async def register_withdraw(self, withdraw: Withdraw) -> bool:
-        try:
-            self._session.add(
-                WithdrawRow(
-                    transaction_id=withdraw.transaction_id,
-                    status=withdraw.status,
-                    tg_id=withdraw.tg_id,
-                    wallet=withdraw.wallet,
-                    amount=withdraw.amount,
-                    time_stamp=withdraw.time_stamp,
-                )
-            )
-            await self._session.commit()
-        except SQLAlchemyError:
-            logger.exception(
-                "Occured while trying to INSERT withdraw(%s, %s, %s, %s, %s, %s)",
-                withdraw.transaction_id,
-                withdraw.status,
-                withdraw.tg_id,
-                withdraw.wallet,
-                withdraw.amount,
-                withdraw.time_stamp,
-            )
-            return False
-        return True
-
-    async def list_pending_withdraws(self, limit: int) -> list[Withdraw]:
-        try:
-            result = await self._session.execute(
-                select(WithdrawRow).where(WithdrawRow.status == 0).limit(limit)
-            )
-            rows = result.scalars().all()
-        except SQLAlchemyError:
-            logger.exception("Occured while trying to list pending withdraws")
-            return []
-        return [
-            Withdraw(
-                transaction_id=row.transaction_id,
-                status=row.status,
-                tg_id=row.tg_id,
-                wallet=row.wallet,
-                amount=row.amount,
-                time_stamp=row.time_stamp,
-            )
-            for row in rows
-        ]
-
-    async def mark_withdraw_sent(self, transaction_id: int) -> bool:
-        try:
-            await self._session.execute(
-                update(WithdrawRow).where(WithdrawRow.transaction_id == transaction_id).values(status=1)
-            )
-            await self._session.commit()
-        except SQLAlchemyError:
-            logger.exception("Occured while trying to mark withdraw(%s) as sent", transaction_id)
             return False
         return True

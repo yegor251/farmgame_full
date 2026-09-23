@@ -86,9 +86,6 @@ class SocketClient{
             case 'claim':
                 result.index = parseInt(parts[1]);
                 break;
-            case 'withdraw':
-                result.amount = parseFloat(parts[1]);
-                break;
             case 'buyslot':
                 result.x = parseInt(parts[1]);
                 result.y = parseInt(parts[2]);
@@ -241,20 +238,12 @@ class SocketClient{
 
         player._availableDeals = data.availableDeals
 
-        let transactions = [
-            ...data.deposits.map((dep, index) => ({
-                ...dep,
-                time_stamp: Math.round(dep.time_stamp),
-                type: 'dep',
-                index
-            })),
-            ...data.withdraws.map(wit => ({
-                ...wit,
-                time_stamp: Math.round(wit.time_stamp),
-                type: 'wit',
-                jetton_signature: 'TFC'
-            }))
-        ];
+        let transactions = data.deposits.map((dep, index) => ({
+            ...dep,
+            time_stamp: Math.round(dep.time_stamp),
+            type: 'dep',
+            index
+        }));
 
         transactions.sort((a, b) => b.time_stamp - a.time_stamp);
 

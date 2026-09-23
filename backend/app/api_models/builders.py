@@ -9,7 +9,7 @@ from app.api_models.item_container import ItemsContainerResponse
 from app.api_models.order import OrderResponse
 from app.api_models.player import PlayerResponse
 from app.api_models.spin import SlotResponse, SpinResponse
-from app.api_models.transaction import DepositResponse, WithdrawResponse
+from app.api_models.transaction import DepositResponse
 from app.api_models.wallet import WalletResponse
 from app.api_models.world import BuildingResponse, BuildingSlotResponse, WorldResponse
 from app.domain.bakery import Bakery
@@ -183,20 +183,6 @@ def build_deposits(game: Game) -> list[DepositResponse]:
     ]
 
 
-def build_withdraws(game: Game) -> list[WithdrawResponse]:
-    return [
-        WithdrawResponse(
-            transaction_id=w.transaction_id,
-            status=w.status,
-            tg_id=w.tg_id,
-            wallet=w.wallet,
-            amount=w.amount,
-            time_stamp=w.time_stamp,
-        )
-        for w in game.transfer_info.withdraws
-    ]
-
-
 def build_available_deals(game: Game) -> dict[str, DealResponse]:
     catalog = get_catalog()
     return {
@@ -240,7 +226,6 @@ def build_game_session(game: Game) -> GameSessionResponse:
         player=build_player(game.player),
         world=build_world(game.world),
         deposits=build_deposits(game),
-        withdraws=build_withdraws(game),
         wallet=build_wallet(game.player),
         available_deals=build_available_deals(game),
         available_boosters=build_available_boosters(game),
@@ -256,7 +241,6 @@ def build_game_session_regen(game: Game) -> GameSessionResponse:
         player=build_player(game.player),
         world=None,
         deposits=None,
-        withdraws=None,
         wallet=build_wallet(game.player),
         available_deals=None,
         available_boosters=build_available_boosters(game),

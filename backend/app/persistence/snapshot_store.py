@@ -17,7 +17,7 @@ from app.domain.orders import Order
 from app.domain.player import Player
 from app.domain.spin import Spin
 from app.domain.stats import Stats
-from app.domain.transfer_info import Deposit, TransferInfo, Withdraw
+from app.domain.transfer_info import Deposit, TransferInfo
 from app.domain.wallet import Wallet
 from app.domain.world import World
 from app.persistence.snapshot_models import (
@@ -41,7 +41,6 @@ from app.persistence.snapshot_models import (
     StatsSnapshot,
     TransferInfoSnapshot,
     WalletSnapshot,
-    WithdrawSnapshot,
     WorldSnapshot,
 )
 from app.static_data.catalog import get_catalog
@@ -275,17 +274,6 @@ class SnapshotStore:
                     )
                     for d in game.transfer_info.deposits
                 ],
-                withdraws=[
-                    WithdrawSnapshot(
-                        transaction_id=w.transaction_id,
-                        status=w.status,
-                        tg_id=w.tg_id,
-                        wallet=w.wallet,
-                        amount=w.amount,
-                        time_stamp=w.time_stamp,
-                    )
-                    for w in game.transfer_info.withdraws
-                ],
             ),
         )
         self._write(
@@ -293,7 +281,6 @@ class SnapshotStore:
             ClientInfoSnapshot(
                 tg_id=game.client_info.tg_id,
                 ref_id=game.client_info.ref_id,
-                wallet=game.client_info.wallet,
                 banned=game.client_info.banned,
                 strikes=game.client_info.strikes,
                 referrals=game.client_info.referrals,
@@ -419,22 +406,10 @@ class SnapshotStore:
                 )
                 for d in transfer_snap.deposits
             ],
-            withdraws=[
-                Withdraw(
-                    transaction_id=w.transaction_id,
-                    status=w.status,
-                    tg_id=w.tg_id,
-                    wallet=w.wallet,
-                    amount=w.amount,
-                    time_stamp=w.time_stamp,
-                )
-                for w in transfer_snap.withdraws
-            ],
         )
         game.transfer_info = transfer_info
 
         client_info = ClientInfo(client_snap.tg_id, client_snap.ref_id)
-        client_info.wallet = client_snap.wallet
         client_info.banned = client_snap.banned
         client_info.strikes = client_snap.strikes
         client_info.referrals = client_snap.referrals

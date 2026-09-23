@@ -4,7 +4,7 @@ from app.domain.player import Player
 from app.domain.transfer_info import TransferInfo
 from app.domain.world import World
 from app.errors import GameErrorCode
-from app.persistence.contracts import DepositRepository, WithdrawRepository
+from app.persistence.contracts import DepositRepository
 from app.services import (
     ambar_service,
     booster_service,
@@ -14,7 +14,6 @@ from app.services import (
     order_service,
     shop_service,
     spin_service,
-    withdraw_service,
 )
 from app.static_data.catalog import get_catalog
 
@@ -38,12 +37,9 @@ class Game:
     def on_unban(self) -> None:
         self.client_info.banned = False
 
-    async def on_connect(
-        self, deposit_repository: DepositRepository, withdraw_repository: WithdrawRepository
-    ) -> None:
+    async def on_connect(self, deposit_repository: DepositRepository) -> None:
         self.on_regenerate()
         await deposit_service.check(self, deposit_repository)
-        await withdraw_service.check_all_withdraws(self, withdraw_repository)
         self.last_operation = GameErrorCode.CONNECTED
 
     def on_use(self, item: str, x: int, y: int) -> None:
@@ -109,14 +105,6 @@ class Game:
 
     def on_claim_deposit(self, deposit_id: int) -> None:
         self.last_operation = deposit_service.claim(self, deposit_id)
-
-    async def on_register_withdraw(
-        self, amount: int, wallet: str, withdraw_repository: WithdrawRepository
-    ) -> None:
-        self.client_info.wallet = wallet
-        self.last_operation = await withdraw_service.create_withdraw(
-            self, amount, self.client_info.wallet, withdraw_repository
-        )
 
     def on_purchase_slot(self, x: int, y: int) -> None:
         if self.world.validate_use(x, y) == GameErrorCode.OK:

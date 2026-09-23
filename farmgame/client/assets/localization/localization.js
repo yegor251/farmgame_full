@@ -94,30 +94,6 @@ class local{
                 "ru": "Нeправильный ввод!",
                 "en": "Wrong input!"
             },
-            "24": {
-                "ru": "Для вывода необходимо 0.1 TON для комиссии. Вывод происходит в течение часа",
-                "en": "For withdrawal you need 0.1 TON for gas. Withdrawal occurs within an hour"
-            },
-            "25": {
-                "ru": "Адрес вывода:",
-                "en": "Withdrawal address:"
-            },
-            "26": {
-                "ru": "Количество токенов:",
-                "en": "Number of tokens:"
-            },
-            "27": {
-                "ru": "ОТПРАВИТЬ",
-                "en": "SEND"
-            },
-            "28": {
-                "ru": "Неправильный формат кошелька",
-                "en": "Wrong wallet format"
-            },
-            "29": {
-              "ru": "Недостаточно TON(0.1) для оплаты комиссии",
-              "en": "Not enough TON(0.1) to pay gas"
-            },
             "30": {
               "ru": "Текущий буст +{% скорости",
               "en": "Current speed boost +{%"

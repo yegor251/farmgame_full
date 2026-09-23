@@ -56,7 +56,6 @@ def test_parse_literal_commands(validator: TelegramInitDataValidator) -> None:
         ("place/garden/1/1", protocol.Place(name="garden", x=1, y=1)),
         ("move/1/2/3/4", protocol.Move(x=1, y=2, to_x=3, to_y=4)),
         ("claim/2", protocol.ClaimDeposit(index=2)),
-        ("withdraw/100/EQ...wallet", protocol.RegisterWithdraw(amount=100, wallet="EQ...wallet")),
         ("buyslot/1/2", protocol.PurchaseSlot(x=1, y=2)),
         ("buydeal/starter", protocol.PurchaseDeal(name="starter")),
         ("activateb/3", protocol.ActivateBooster(index=3)),

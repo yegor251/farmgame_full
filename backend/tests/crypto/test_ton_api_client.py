@@ -45,22 +45,3 @@ async def test_get_account_events_parses_response() -> None:
     assert events[0].event_id == "1a"
     assert events[0].actions[0].TonTransfer is not None
     assert events[0].actions[0].TonTransfer.amount == 500
-
-
-async def test_get_jetton_wallet_address_returns_none_on_404() -> None:
-    client = _client_with_transport(httpx.MockTransport(lambda request: httpx.Response(404)))
-
-    address = await client.get_jetton_wallet_address("0:acc", "0:jetton")
-
-    assert address is None
-
-
-async def test_get_jetton_wallet_address_returns_address() -> None:
-    handler = httpx.MockTransport(
-        lambda request: httpx.Response(200, json={"wallet_address": {"address": "0:wallet"}})
-    )
-    client = _client_with_transport(handler)
-
-    address = await client.get_jetton_wallet_address("0:acc", "0:jetton")
-
-    assert address == "0:wallet"

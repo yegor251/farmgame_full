@@ -44,8 +44,6 @@ class Settings(BaseSettings):
     building_corral_per_building_k: float = 100.0
     building_garden_per_building_k: float = 1.2
 
-    withdraw_ton_fee: int = 100_000_000
-
     @property
     def database_dsn(self) -> str:
         if self.database_url is not None:

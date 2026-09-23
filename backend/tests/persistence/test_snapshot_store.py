@@ -39,7 +39,6 @@ def test_round_trip_preserves_player_state(tmp_path: Path) -> None:
     game.player.active_boosters.grow_speed = Booster(
         booster_type="GrowSpeed", percentage=15, time=1800, activate_timestamp=datetime.now(UTC)
     )
-    game.client_info.wallet = "EQsomewallet"
     game.client_info.strikes = 2
     game.client_info.referrals = [1, 2, 3]
 
@@ -60,7 +59,6 @@ def test_round_trip_preserves_player_state(tmp_path: Path) -> None:
     assert loaded.player.active_boosters.grow_speed is not None
     assert loaded.player.active_boosters.grow_speed.percentage == 15
     assert loaded.player.active_boosters.order_money is None
-    assert loaded.client_info.wallet == "EQsomewallet"
     assert loaded.client_info.strikes == 2
     assert loaded.client_info.referrals == [1, 2, 3]
 

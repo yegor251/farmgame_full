@@ -1,7 +1,7 @@
 PYTHON := python3.13
 VENV := .venv
 
-.PHONY: install lint typecheck test run run-deposit-watcher run-withdraw-processor
+.PHONY: install lint typecheck test run run-deposit
 
 install:
 	$(PYTHON) -m venv $(VENV)
@@ -29,6 +29,3 @@ run:
 
 run-deposit:
 	$(VENV)/bin/python -m app.crypto.run_deposit_watcher
-
-run-withdraw:
-	$(VENV)/bin/python -m app.crypto.run_withdraw_processor

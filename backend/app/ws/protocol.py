@@ -70,12 +70,6 @@ class ClaimDeposit:
 
 
 @dataclass
-class RegisterWithdraw:
-    amount: int
-    wallet: str
-
-
-@dataclass
 class PurchaseSlot:
     x: int
     y: int
@@ -119,7 +113,6 @@ Command = (
     | OrderOperation
     | Regeneration
     | ClaimDeposit
-    | RegisterWithdraw
     | PurchaseSlot
     | PurchaseDeal
     | ActivateBooster
@@ -200,12 +193,6 @@ def parse_command(message: str, init_data_validator: TelegramInitDataValidator) 
             if parts is None:
                 return Unknown()
             return ClaimDeposit(int(parts[1]))
-
-        if prefix == "withdraw":
-            parts = _split(message, 3)
-            if parts is None:
-                return Unknown()
-            return RegisterWithdraw(int(parts[1]), parts[2])
 
         if prefix == "buyslot":
             parts = _split(message, 3)

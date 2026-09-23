@@ -3,7 +3,7 @@ from datetime import UTC, datetime
 from app.domain.boosters import Booster
 from app.domain.game import Game
 from app.domain.obstacle import Obstacle
-from app.domain.transfer_info import Deposit, Withdraw
+from app.domain.transfer_info import Deposit
 from app.errors import GameErrorCode
 from app.static_data.catalog import get_catalog
 
@@ -13,14 +13,6 @@ class _FakeDepositRepository:
         return []
 
     async def close_deposit_by_transaction_id(self, transaction_id: int) -> bool:
-        return True
-
-
-class _FakeWithdrawRepository:
-    async def check_withdraw_by_info(self, transaction_id: int) -> Withdraw | None:
-        return None
-
-    async def register_withdraw(self, withdraw: Withdraw) -> bool:
         return True
 
 
@@ -49,7 +41,7 @@ def test_on_ban_and_on_unban_toggle_banned_flag() -> None:
 async def test_on_connect_regenerates_and_marks_connected() -> None:
     game = Game(tg_id=1, ref_id=0)
 
-    await game.on_connect(_FakeDepositRepository(), _FakeWithdrawRepository())
+    await game.on_connect(_FakeDepositRepository())
 
     assert game.last_operation == GameErrorCode.CONNECTED
 
