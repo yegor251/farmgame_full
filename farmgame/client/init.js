@@ -260,8 +260,13 @@ export default socketClient;
 class Init {
     constructor() {
         if (Object.keys(window.Telegram.WebApp.initDataUnsafe).length != 0){
+            window.Telegram.WebApp.ready();
             window.Telegram.WebApp.expand();
+            window.Telegram.WebApp.setHeaderColor('#00000000');
             window.Telegram.WebApp.disableVerticalSwipes();
+            if (window.Telegram.WebApp.requestFullscreen) {
+                window.Telegram.WebApp.requestFullscreen();
+            }
             GVAR.tg_id = window.Telegram.WebApp.initDataUnsafe.user.id
             GVAR.tg_name = window.Telegram.WebApp.initDataUnsafe.user.username
             console.log(window.Telegram.WebApp.initDataUnsafe.user.language_code)
