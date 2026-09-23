@@ -95,7 +95,7 @@ class TransactionsMenu {
             if (item.jetton_signature === "TON")
                 amountCelltext.innerText = '+' + (item.amount / 1000000000).toString().match(/^-?\d+(?:\.\d{0,3})?/)[0]
             else if (item.jetton_signature === "USDT")
-                amountCelltext.innerText = '+' + (item.amount / 1000000).toString().match(/^-?\d+(?:\.\d{0,3})?/)[0]
+                amountCelltext.innerText = '+' + (item.amount / 10000000000).toString().match(/^-?\d+(?:\.\d{0,3})?/)[0]
             else
                 amountCelltext.innerText = '+' + (item.amount / 100).toString().match(/^-?\d+(?:\.\d{0,2})?/)[0]
             amountCelltext.classList.add('unlocked')
