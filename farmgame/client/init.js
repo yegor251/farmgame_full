@@ -262,7 +262,6 @@ class Init {
         if (Object.keys(window.Telegram.WebApp.initDataUnsafe).length != 0){
             window.Telegram.WebApp.ready();
             window.Telegram.WebApp.expand();
-            window.Telegram.WebApp.setHeaderColor('#00000000');
             window.Telegram.WebApp.disableVerticalSwipes();
             if (window.Telegram.WebApp.requestFullscreen) {
                 window.Telegram.WebApp.requestFullscreen();
